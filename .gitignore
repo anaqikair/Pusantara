@@ -1,43 +1,36 @@
-# ROS 2 / colcon generated folders
+# ROS 2 generated folders
 build/
 install/
 log/
 
-# Python generated files
+# Python cache
 __pycache__/
-*.py[cod]
+*.pyc
+*.pyo
 .pytest_cache/
-.mypy_cache/
 
-# Editor files
+# Editors and temporary files
 .vscode/
 .idea/
 *~
-.DS_Store
+*.tmp
+*.log
 
-# Secrets and credentials
+# Secrets
 .env
 .env.*
-*.pem
 *.key
-*.token
-secrets/
+*.pem
 credentials/
+secrets/
 
-# ROS bags and generated recordings
+# Large generated files and models
 *.bag
 *.db3
 *.mcap
-*.mp4
-*.avi
-
-# Large AI models
 *.pt
 *.pth
 *.onnx
 *.engine
-
-# Temporary files
-*.tmp
-*.temp
-*.log
+*.mp4
+*.avi
