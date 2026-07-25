@@ -1,0 +1,1207 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# PUSANTARA — Cultural Heritage Service Robot
+# ROS 2 Workspace Architecture Report
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Robot Name    : PUSANTARA
+# Competition   : VECTRA 2026 — Creative Category
+# Team          : ANAQI Robotics Team
+# Platform      : ROS 2 Humble | Ubuntu 22.04 | Jetson Orin Nano (aarch64)
+# Workspace     : ~/vectra_ws
+# Domain ID     : ROS_DOMAIN_ID=1
+# Generated     : 2026-07-01
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+## Table of Contents
+
+ 1. [System Overview](#1-system-overview)
+ 2. [Hardware Platform](#2-hardware-platform)
+ 3. [Packages Overview](#3-packages-overview)
+ 4. [Nodes & Executables (Detailed)](#4-nodes--executables-detailed)
+ 5. [Launch Files & Startup Procedure](#5-launch-files--startup-procedure)
+ 6. [Topics — Complete Map](#6-topics--complete-map)
+ 7. [Parameters (per node, from source)](#7-parameters-per-node-from-source)
+ 8. [TF Tree & Static Transforms](#8-tf-tree--static-transforms)
+ 9. [URDF / Robot Model](#9-urdf--robot-model)
+10. [Navigation Stack (Nav2)](#10-navigation-stack-nav2)
+11. [SLAM Configuration](#11-slam-configuration)
+12. [Motor Controller Firmware (Arduino / PRIZM)](#12-motor-controller-firmware-arduino--prizm)
+13. [Serial Communication Protocol](#13-serial-communication-protocol)
+14. [Perception Pipeline](#14-perception-pipeline)
+15. [Speech & AI Pipeline](#15-speech--ai-pipeline)
+16. [Cultural Exhibition Applications](#16-cultural-exhibition-applications)
+17. [Admin Console (PyQt5 GUI)](#17-admin-console-pyqt5-gui)
+18. [Configuration Files](#18-configuration-files)
+19. [Operational Commands Reference](#19-operational-commands-reference)
+20. [Data Flow Diagrams (Mermaid)](#20-data-flow-diagrams-mermaid)
+21. [Dependency Graph (Mermaid)](#21-dependency-graph-mermaid)
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 1. System Overview
+
+PUSANTARA is a differential-drive cultural heritage service robot built for
+the VECTRA 2026 Creative Category competition. It combines autonomous
+navigation (SLAM + Nav2), computer vision (YOLOv8 + AprilTag), speech
+interaction (Whisper STT + Piper TTS + Qwen LLM), and interactive cultural
+exhibition applications (food quiz, batik designer, keris AR demo, heritage
+explainer) into a single ROS 2 workspace of 25 custom packages.
+
+The robot operates on a Jetson Orin Nano running Ubuntu 22.04 with ROS 2
+Humble. The software architecture is split into seven functional layers:
+
+  Layer 1 — Hardware Drivers    : serial_bridge, bno055_driver, hls_lfcd_lds_driver, camera_node
+  Layer 2 — Odometry & TF      : vectra_odometry, static TF publishers
+  Layer 3 — Motion & Safety    : cmd_vel_bridge, motion_manager
+  Layer 4 — SLAM & Navigation  : slam_toolbox, Nav2 stack (pusantara_navigation)
+  Layer 5 — Perception         : vectra_yolo, apriltag_detector
+  Layer 6 — Interaction & AI   : speech_to_text, tts_node, qwen_assistant, visitor_greeter, robot_face
+  Layer 7 — Exhibition Apps    : food_quiz, batik_designer, keris_demo, heritage_explainer, malaysia_history_quiz
+  Layer 8 — Administration     : pusantara_admin, pusantara_bringup
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 2. Hardware Platform
+
+| Component              | Specification                                       |
+|------------------------|-----------------------------------------------------|
+| Compute                | NVIDIA Jetson Orin Nano (aarch64)                   |
+| OS                     | Ubuntu 22.04 LTS                                    |
+| ROS Distribution       | ROS 2 Humble Hawksbill                              |
+| Motor Controller       | TETRIX PRIZM (Arduino-compatible via USB-FTDI)      |
+| Drive Type             | Differential drive, 2 powered + 2 casters           |
+| Wheel Radius           | 0.05 m (50 mm)                                      |
+| Wheel Base             | 0.33 m (330 mm)                                     |
+| Encoder Resolution     | 1425 ticks/revolution                               |
+| LiDAR                  | HLS-LFCD-LDS (Hitachi-LG via CP2102 USB-UART)      |
+| IMU                    | Bosch BNO055 (I2C bus 1, address 0x28)              |
+| Camera                 | Logitech C270 HD (USB, 640×480 @ 30 FPS)            |
+| Audio Input            | USB webcam microphone (sysdefault:CARD=WEBCAM)      |
+| Audio Output           | System speaker (aplay)                              |
+| TTS Engine             | Piper TTS (local, ONNX models)                      |
+| STT Engine             | faster-whisper (base model, int8, CPU)              |
+| LLM                    | Qwen 2.5 0.5B via Ollama (local inference)          |
+| Object Detection       | YOLOv8n (Ultralytics, yolov8n.pt)                   |
+| AprilTag Library       | pupil_apriltags (tag36h11 family)                   |
+| AR Framework           | MediaPipe Hands + OpenCV                            |
+| Robot Base Dimensions  | 0.48 × 0.36 × 0.16 m (L × W × H)                  |
+| Robot Radius (Nav2)    | 0.25 m                                              |
+| Screen Pole Height     | 0.62 m from base_link                               |
+| Gripper Servos         | 3× TETRIX servos (channels 1, 2, 3)                |
+| Motor Channels         | Motor 1 = Right, Motor 2 = Left (inverted)          |
+
+### Serial Device Paths
+
+| Device       | Path                                                                                      |
+|--------------|-------------------------------------------------------------------------------------------|
+| PRIZM (FTDI) | /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A105QM2R-if00-port0                          |
+| LiDAR (CP21) | /dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0  |
+| Camera       | /dev/v4l/by-id/usb-046d_C270_HD_WEBCAM_E01FE110-video-index0                             |
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 3. Packages Overview
+
+25 packages total: 23 × ament_python, 2 × ament_cmake.
+
+| # | Package                | Path                         | Build System  | Description                                       |
+|---|------------------------|------------------------------|---------------|----------------------------------------------------|
+| 1 | apriltag_detector      | src/apriltag_detector        | ament_python  | Detects tag36h11 AprilTags from camera stream      |
+| 2 | apriltag_follower      | src/apriltag_follower        | ament_python  | P-controller to follow AprilTags with differential drive |
+| 3 | batik_designer         | src/batik_designer           | ament_python  | Tkinter batik pattern drawing studio               |
+| 4 | bno055_driver          | src/bno055_driver            | ament_python  | BNO055 IMU driver (I2C, smbus2) with calibration   |
+| 5 | camera_node            | src/camera_node              | ament_python  | USB webcam publisher at 30 FPS (cv_bridge)         |
+| 6 | cmd_vel_bridge         | src/cmd_vel_bridge           | ament_python  | Converts geometry_msgs/Twist → M,right,left serial |
+| 7 | food_quiz              | src/food_quiz                | ament_python  | Malaysian food heritage quiz (Tkinter + TTS)       |
+| 8 | heritage_explainer     | src/heritage_explainer       | ament_python  | AprilTag-triggered cultural narration via TTS      |
+| 9 | hls_lfcd_lds_driver    | src/hls_lfcd_lds_driver      | ament_cmake   | HLS-LFCD-LDS LiDAR driver (C++)                   |
+|10 | keris_demo             | src/keris_demo               | ament_python  | AR keris overlay using MediaPipe hand tracking     |
+|11 | malaysia_history_quiz  | src/malaysia_history_quiz    | ament_python  | Malaysian history quiz (placeholder)               |
+|12 | motion_manager         | src/motion_manager           | ament_python  | LiDAR-based obstacle avoidance safety layer        |
+|13 | person_follower        | src/person_follower          | ament_python  | YOLO-based person tracking and following           |
+|14 | pusantara_admin        | src/pusantara_admin          | ament_python  | PyQt5 admin console (5 modules)                    |
+|15 | pusantara_bringup      | src/pusantara_bringup        | ament_python  | Main robot launch file (all core nodes)            |
+|16 | pusantara_description  | src/pusantara_description    | ament_cmake   | URDF/xacro robot model                             |
+|17 | pusantara_navigation   | src/pusantara_navigation     | ament_python  | Nav2 launch + config + maps + BT XMLs              |
+|18 | qwen_assistant         | src/qwen_assistant           | ament_python  | Qwen 2.5 LLM node via Ollama                      |
+|19 | robot_face             | src/robot_face               | ament_python  | Animated robot face display (Pygame)               |
+|20 | serial_bridge          | src/serial_bridge            | ament_python  | USB-serial bridge to PRIZM controller              |
+|21 | speech_to_text         | src/speech_to_text           | ament_python  | Whisper-based speech recognition with wake word    |
+|22 | tts_node               | src/tts_node                 | ament_python  | Piper TTS engine + interactive sender CLI          |
+|23 | vectra_odometry        | src/vectra_odometry          | ament_python  | Wheel encoder + IMU fused odometry                 |
+|24 | vectra_yolo            | src/vectra_yolo              | ament_python  | YOLOv8n person detection                           |
+|25 | visitor_greeter        | src/visitor_greeter          | ament_python  | Automatic visitor greeting/engagement via TTS      |
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 4. Nodes & Executables (Detailed)
+
+### 4.1 Hardware Drivers
+
+| Package           | Executable             | ROS Node Name             | Purpose                                         |
+|-------------------|------------------------|---------------------------|-------------------------------------------------|
+| camera_node       | webcam_pub             | webcam_publisher          | Captures USB camera → /camera/image_raw at 30Hz |
+| hls_lfcd_lds_driver | hlds_laser_publisher | hlds_laser_publisher      | LiDAR driver → /scan (LaserScan)                |
+| bno055_driver     | imu_node               | bno055_imu                | BNO055 IMU → /imu/data, /imu/mag, /imu/temp, /imu/cal_status |
+| serial_bridge     | bridge_node            | serial_bridge             | USB-FTDI ↔ PRIZM: commands TX, encoder RX       |
+| serial_bridge     | command_sender         | tts_sender (CLI)          | Interactive CLI to send commands to PRIZM        |
+
+### 4.2 Odometry & Motion
+
+| Package           | Executable             | ROS Node Name             | Purpose                                         |
+|-------------------|------------------------|---------------------------|-------------------------------------------------|
+| vectra_odometry   | odometry_node          | odometry_node             | Fuses encoders + IMU → /odom + TF odom→base_link |
+| cmd_vel_bridge    | cmd_vel_to_robot_command | cmd_vel_to_robot_command | Twist /cmd_vel → String /robot_command           |
+| motion_manager    | motion_manager         | motion_manager            | LiDAR safety layer: /robot_command → /safe_robot_command |
+
+### 4.3 Perception
+
+| Package           | Executable             | ROS Node Name             | Purpose                                         |
+|-------------------|------------------------|---------------------------|-------------------------------------------------|
+| vectra_yolo       | yolo_detector          | yolo_detector             | YOLOv8n person detection → /yolo/detections      |
+| apriltag_detector | apriltag_detector      | apriltag_detector         | AprilTag detection → /apriltag/id, /apriltag/detections |
+
+### 4.4 Behavior / Following
+
+| Package           | Executable             | ROS Node Name             | Purpose                                         |
+|-------------------|------------------------|---------------------------|-------------------------------------------------|
+| person_follower   | person_follower        | person_follower           | Follows largest detected person via motor commands |
+| apriltag_follower | apriltag_follower      | apriltag_follower         | P-controller to follow AprilTags with search mode |
+
+### 4.5 Speech & AI
+
+| Package           | Executable             | ROS Node Name             | Purpose                                         |
+|-------------------|------------------------|---------------------------|-------------------------------------------------|
+| speech_to_text    | stt_node               | speech_to_text            | Whisper STT with wake word "robot"               |
+| tts_node          | tts_node               | tts_node                  | Piper TTS with auto language detection (EN/MS)   |
+| tts_node          | tts_sender             | tts_sender                | Interactive CLI to publish TTS text              |
+| qwen_assistant    | qwen_node              | qwen_node                 | Qwen 2.5 LLM chat via Ollama                    |
+
+### 4.6 Exhibition Applications
+
+| Package            | Executable             | ROS Node Name             | Purpose                                         |
+|--------------------|------------------------|---------------------------|-------------------------------------------------|
+| robot_face         | face_node              | robot_face                | Animated face with gaze tracking (Pygame, 33Hz)  |
+| visitor_greeter    | visitor_greeter        | visitor_greeter           | Auto-greet/engage/farewell visitors via TTS      |
+| heritage_explainer | heritage_explainer     | heritage_explainer        | AprilTag ID → cultural narration via TTS         |
+| food_quiz          | food_quiz              | food_quiz                 | Malaysian food heritage quiz (Tkinter GUI)       |
+| batik_designer     | batik_designer         | —                         | Batik pattern drawing studio (Tkinter GUI)       |
+| keris_demo         | keris_demo             | keris_node                | AR keris overlay using MediaPipe hands           |
+| malaysia_history_quiz | history_quiz        | —                         | Malaysian history quiz (placeholder)             |
+
+### 4.7 Administration
+
+| Package           | Executable             | ROS Node Name               | Purpose                                         |
+|-------------------|------------------------|-----------------------------|------------------------------------------------|
+| pusantara_admin   | admin_console          | pusantara_admin_console     | PyQt5 admin dashboard (5 views)                 |
+
+### 4.8 Navigation Stack (External Packages)
+
+| Package                  | Executable            | Node Name                      | Purpose                           |
+|--------------------------|-----------------------|--------------------------------|-----------------------------------|
+| nav2_map_server          | map_server            | map_server                     | Serves occupancy grid map         |
+| nav2_amcl                | amcl                  | amcl                           | Adaptive Monte Carlo localization |
+| nav2_planner             | planner_server        | planner_server                 | Global path planning (NavFn)      |
+| nav2_controller          | controller_server     | controller_server              | Local trajectory control (DWB)    |
+| nav2_bt_navigator        | bt_navigator          | bt_navigator                   | Behavior tree navigation manager  |
+| nav2_behaviors           | behavior_server       | behavior_server                | Recovery behaviors (spin/backup/wait) |
+| nav2_lifecycle_manager   | lifecycle_manager     | lifecycle_manager_navigation   | Manages Nav2 node lifecycles      |
+| slam_toolbox             | async_slam_toolbox_node | slam_toolbox                 | Online async SLAM                 |
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 5. Launch Files & Startup Procedure
+
+### 5.1 Launch Files
+
+| Package               | Launch File                    | Description                                        |
+|-----------------------|--------------------------------|----------------------------------------------------|
+| pusantara_bringup     | robot.launch.py                | Core robot (LiDAR, IMU, serial, odom, TF, motion)  |
+| vectra_odometry       | odometry.launch.py             | Odometry node with config YAML                     |
+| hls_lfcd_lds_driver   | hlds_laser.launch.py           | LiDAR driver standalone                            |
+| pusantara_navigation  | navigation.launch.py           | Full Nav2 stack (map_server, AMCL, planner, etc.)  |
+| pusantara_description | display.launch.py              | URDF visualization in RViz                         |
+| malaysia_history_quiz | history_quiz.launch.py         | History quiz launcher                              |
+| slam_toolbox          | online_async_launch.py         | SLAM (external package)                            |
+
+### 5.2 Typical Startup Sequence
+
+```bash
+# Terminal 1 — Core Robot
+source /opt/ros/humble/setup.bash
+source ~/vectra_ws/install/setup.bash
+export ROS_DOMAIN_ID=1
+ros2 launch pusantara_bringup robot.launch.py
+
+# Terminal 2 — SLAM (mapping mode)
+ros2 launch slam_toolbox online_async_launch.py \
+  slam_params_file:=/home/orin_nano/vectra_ws/config/slam.yaml
+
+# Terminal 3 — Navigation (with existing map)
+ros2 launch pusantara_navigation navigation.launch.py \
+  use_sim_time:=False autostart:=True \
+  map:=$HOME/vectra_ws/maps/pusantara_map1.yaml \
+  params_file:=$HOME/vectra_ws/src/pusantara_navigation/config/nav2_params.yaml
+
+# Terminal 4 — cmd_vel bridge (needed when Nav2 drives the robot)
+ros2 run cmd_vel_bridge cmd_vel_to_robot_command
+
+# Terminal 5 — Perception
+ros2 run camera_node webcam_pub
+ros2 run vectra_yolo yolo_detector --ros-args -p debug:=true -p confidence_threshold:=0.6
+ros2 run apriltag_detector apriltag_detector --ros-args -p show_ui:=true
+
+# Terminal 6 — Exhibition applications (pick any)
+ros2 run robot_face face_node
+ros2 run visitor_greeter visitor_greeter
+ros2 run heritage_explainer heritage_explainer
+ros2 run food_quiz food_quiz
+ros2 run batik_designer batik_designer
+ros2 run keris_demo keris_demo
+
+# Terminal 7 — Speech & AI
+ros2 run tts_node tts_node
+ros2 run speech_to_text stt_node
+ros2 run qwen_assistant qwen_node
+
+# Terminal 8 — Admin Console
+ros2 run pusantara_admin admin_console
+```
+
+### 5.3 Nodes Launched by robot.launch.py
+
+The bringup launch file starts 6 items:
+
+  1. hlds_laser_publisher (LiDAR, port: CP2102 by-id)
+  2. imu_node (BNO055, I2C)
+  3. motion_manager (safety layer)
+  4. serial_bridge (bridge_node, FTDI)
+  5. vectra_odometry (odometry.launch.py include)
+  6. static_transform_publisher (base_link → laser: x=0.135, z=0.60)
+
+### 5.4 Nodes Launched by navigation.launch.py
+
+  1. map_server (nav2_map_server)
+  2. amcl (nav2_amcl)
+  3. planner_server (nav2_planner — NavfnPlanner)
+  4. controller_server (nav2_controller — DWBLocalPlanner, remaps cmd_vel → /cmd_vel)
+  5. bt_navigator (nav2_bt_navigator)
+  6. behavior_server (nav2_behaviors — Spin, BackUp, Wait)
+  7. lifecycle_manager_navigation (autostart: true)
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 6. Topics — Complete Map
+
+### 6.1 Sensor Topics
+
+| Topic                    | Type                          | Publisher            | Subscribers                                      | QoS      |
+|--------------------------|-------------------------------|----------------------|--------------------------------------------------|----------|
+| /camera/image_raw        | sensor_msgs/Image             | webcam_publisher     | yolo_detector, apriltag_detector, keris_node, admin_console | RELIABLE |
+| /scan                    | sensor_msgs/LaserScan         | hlds_laser_publisher | motion_manager, SLAM, Nav2 costmaps, admin_console | BEST_EFFORT |
+| /imu/data                | sensor_msgs/Imu               | bno055_imu           | odometry_node                                    | BEST_EFFORT |
+| /imu/mag                 | sensor_msgs/MagneticField     | bno055_imu           | —                                                | RELIABLE |
+| /imu/temp                | sensor_msgs/Temperature       | bno055_imu           | —                                                | RELIABLE |
+| /imu/cal_status          | std_msgs/String               | bno055_imu           | admin_console                                    | RELIABLE |
+| /wheel_encoder           | std_msgs/Int32MultiArray      | serial_bridge        | odometry_node                                    | RELIABLE |
+
+### 6.2 Odometry & Navigation Topics
+
+| Topic                    | Type                          | Publisher            | Subscribers                                      |
+|--------------------------|-------------------------------|----------------------|--------------------------------------------------|
+| /odom                    | nav_msgs/Odometry             | odometry_node        | SLAM, Nav2 (bt_navigator, controller_server)     |
+| /cmd_vel                 | geometry_msgs/Twist           | Nav2 controller_server | cmd_vel_to_robot_command                        |
+| /tf                      | tf2_msgs/TFMessage            | odometry_node (odom→base_link), AMCL (map→odom) | All Nav2 nodes, SLAM, RViz |
+| /tf_static               | tf2_msgs/TFMessage            | static_transform_publisher (base_link→laser)      | All nodes |
+| /map                     | nav_msgs/OccupancyGrid        | map_server / SLAM    | Nav2 global costmap, RViz                        |
+
+### 6.3 Motor Command Pipeline Topics
+
+| Topic                    | Type                          | Publisher                    | Subscriber                  |
+|--------------------------|-------------------------------|------------------------------|-----------------------------|
+| /robot_command           | std_msgs/String               | cmd_vel_bridge, person_follower, apriltag_follower, admin_console | motion_manager |
+| /safe_robot_command      | std_msgs/String               | motion_manager, admin_console (E-stop) | serial_bridge     |
+
+### 6.4 Perception Topics
+
+| Topic                    | Type                          | Publisher            | Subscribers                                      |
+|--------------------------|-------------------------------|----------------------|--------------------------------------------------|
+| /yolo/detections         | std_msgs/String               | yolo_detector        | person_follower, robot_face, visitor_greeter, admin_console |
+| /yolo/debug_image        | sensor_msgs/Image             | yolo_detector        | —                                                |
+| /apriltag/id             | std_msgs/Int32                | apriltag_detector    | —                                                |
+| /apriltag/detections     | std_msgs/String               | apriltag_detector    | apriltag_follower, heritage_explainer, admin_console |
+
+### 6.5 Speech & AI Topics
+
+| Topic                    | Type                          | Publisher            | Subscribers                                      |
+|--------------------------|-------------------------------|----------------------|--------------------------------------------------|
+| /speech_text             | std_msgs/String               | speech_to_text       | —                                                |
+| /user_text               | std_msgs/String               | admin_console        | qwen_node                                        |
+| /tts_text                | std_msgs/String               | qwen_node, visitor_greeter, heritage_explainer, admin_console | tts_node, robot_face |
+
+### 6.6 Exhibition Topics
+
+| Topic                    | Type                          | Publisher            | Subscribers                                      |
+|--------------------------|-------------------------------|----------------------|--------------------------------------------------|
+| /keris/image             | sensor_msgs/Image             | keris_node           | —                                                |
+
+### 6.7 Detection String Formats
+
+**YOLO /yolo/detections format:**
+  `person,<conf>,<center_x>,<center_y>,<width>,<height>`
+  Multiple detections separated by `;`
+  Example: `person,0.87,320,240,150,300;person,0.72,100,200,80,200`
+
+**AprilTag /apriltag/detections format (JSON):**
+  ```json
+  {
+    "id": 2,
+    "center_x": 320, "center_y": 240,
+    "width": 45, "height": 45,
+    "area": 2025,
+    "frame_width": 640, "frame_height": 480,
+    "normalized_x": 0.5, "normalized_y": 0.5,
+    "timestamp": 1719811234.567
+  }
+  ```
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 7. Parameters (per node, from source)
+
+### 7.1 camera_node / webcam_pub
+
+  (No ROS parameters. Hardcoded: device by-id, 640×480, 30 FPS)
+
+### 7.2 bno055_driver / imu_node
+
+| Parameter       | Type    | Default             | Description                              |
+|-----------------|---------|---------------------|------------------------------------------|
+| bus             | int     | 1                   | I2C bus number                           |
+| address         | int     | 0x28                | I2C device address                       |
+| frame_id        | string  | "imu_link"          | TF frame for IMU messages                |
+| rate            | float   | 100.0               | Publish rate in Hz                       |
+| cal_file        | string  | "/tmp/bno055_cal.json" | Calibration offsets JSON path          |
+| wait_cal        | bool    | false               | Block until fully calibrated at startup  |
+| gyro_deadband   | float   | 0.002               | Gyro deadband in rad/s                   |
+| alpha           | float   | 0.98                | Complementary filter coefficient         |
+| op_mode         | string  | "ndof"              | Operation mode: "ndof" or "imuplus"      |
+
+### 7.3 serial_bridge / bridge_node
+
+| Parameter       | Type    | Default                                                          | Description                |
+|-----------------|---------|------------------------------------------------------------------|----------------------------|
+| port            | string  | "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A105QM2R-if00-port0" | Serial port path          |
+| baudrate        | int     | 115200                                                           | Baud rate                  |
+| timeout         | float   | 0.1                                                              | Serial read timeout (s)    |
+
+### 7.4 vectra_odometry / odometry_node
+
+| Parameter            | Type    | Default      | Description                            |
+|----------------------|---------|--------------|----------------------------------------|
+| wheel_radius         | float   | 0.05         | Wheel radius in metres                 |
+| wheel_base           | float   | 0.33         | Distance between drive wheels (m)      |
+| ticks_per_revolution | int     | 1425         | Encoder ticks per full revolution      |
+| odom_frame           | string  | "odom"       | Odometry parent frame ID               |
+| base_frame           | string  | "base_link"  | Robot base frame ID                    |
+| publish_rate         | float   | 30.0         | Odometry publish rate (Hz)             |
+
+  Features: Live parameter update callback, velocity low-pass filter (α=0.3),
+  zero-velocity deadband (1 tick), wheel-slip detection, covariance growth
+  with distance, pure-Python quaternion math (no tf_transformations dependency).
+
+### 7.5 cmd_vel_bridge / cmd_vel_to_robot_command
+
+| Parameter           | Type    | Default       | Description                              |
+|---------------------|---------|---------------|------------------------------------------|
+| cmd_vel_topic       | string  | "/cmd_vel"    | Input Twist topic                        |
+| robot_command_topic | string  | "/robot_command" | Output String topic                   |
+| wheel_separation    | float   | 0.33          | Track width (m)                          |
+| max_linear_speed    | float   | 0.35          | Max linear velocity (m/s)                |
+| max_angular_speed   | float   | 1.20          | Max angular velocity (rad/s)             |
+| max_motor_power     | int     | 55            | Max motor power value (0–100)            |
+| min_motor_power     | int     | 18            | Minimum motor power (deadband)           |
+| linear_deadband     | float   | 0.02          | Linear velocity deadband (m/s)           |
+| angular_deadband    | float   | 0.05          | Angular velocity deadband (rad/s)        |
+| cmd_timeout         | float   | 0.50          | Watchdog timeout — auto-stop (s)         |
+| left_invert         | bool    | false         | Invert left motor direction              |
+| right_invert        | bool    | false         | Invert right motor direction             |
+| swap_wheels         | bool    | false         | Swap left/right motor assignments        |
+| allow_reverse       | bool    | true          | Allow backward driving                   |
+
+### 7.6 motion_manager
+
+| Parameter         | Type    | Default | Description                                  |
+|-------------------|---------|---------|----------------------------------------------|
+| mode              | string  | "SAFE"  | Mode: SAFE (stop), ASSIST (slow), OVERRIDE   |
+| stop_distance     | float   | 0.15    | Distance to hard-stop (m)                    |
+| warning_distance  | float   | 0.50    | Distance to slow down in ASSIST mode (m)     |
+| front_angle       | float   | 30.0    | Front cone half-angle (degrees)              |
+
+  Safety modes:
+    SAFE     — Stops robot if obstacle < stop_distance
+    ASSIST   — Slows to M,10,10 if obstacle < warning_distance, stops if < stop_distance
+    OVERRIDE — Passes all commands through without safety checks
+
+### 7.7 vectra_yolo / yolo_detector
+
+| Parameter              | Type    | Default | Description                       |
+|------------------------|---------|---------|-----------------------------------|
+| debug                  | bool    | false   | Enable debug UI + overlay + FPS   |
+| confidence_threshold   | float   | 0.5     | Minimum detection confidence      |
+
+### 7.8 apriltag_detector
+
+| Parameter   | Type   | Default | Description                          |
+|-------------|--------|---------|--------------------------------------|
+| show_ui     | bool   | true    | Show OpenCV preview window           |
+
+  Detector config: tag36h11, 4 threads, quad_decimate=1.0, refine_edges=1
+
+### 7.9 apriltag_follower
+
+| Parameter          | Type    | Default | Description                             |
+|--------------------|---------|---------|-----------------------------------------|
+| kp                 | float   | 80.0    | Proportional gain for steering          |
+| target_x           | float   | 0.5     | Target normalized X position (0–1)      |
+| normal_speed       | int     | 40      | Forward speed when tag is far           |
+| slow_speed         | int     | 20      | Forward speed when tag is near          |
+| stop_area          | int     | 6000    | Tag pixel area to stop (too close)      |
+| slow_area          | int     | 3000    | Tag pixel area to slow down            |
+| lost_timeout       | float   | 0.5     | Seconds before declaring tag lost       |
+| search_timeout     | float   | 2.0     | Seconds before entering search mode     |
+| search_speed       | int     | 15      | Rotation speed during search            |
+| search_switch_time | float   | 3.0     | Seconds before switching search direction |
+
+### 7.10 person_follower
+
+  (No ROS parameters. Hardcoded thresholds:)
+    - Close enough (stop): person width > 250 px
+    - Turn left: center_x < 260 px
+    - Turn right: center_x > 380 px
+    - Forward: center_x in [260, 380]
+    - Motor speeds: turn ±20, forward 30
+
+### 7.11 speech_to_text / stt_node
+
+  (No ROS parameters. Hardcoded:)
+    - Whisper model: "base" (CPU, int8)
+    - Wake word: "robot"
+    - Audio device: "sysdefault:CARD=WEBCAM"
+    - Record duration: 4 seconds per cycle
+
+### 7.12 tts_node
+
+  (No ROS parameters. Hardcoded paths:)
+    - Piper binary: /home/orin_nano/tts/piper/piper
+    - English model: /home/orin_nano/tts/en_US-lessac-medium.onnx
+    - Malay model: /home/orin_nano/tts/ms_MY-medium.onnx
+    - Auto-detects language via keyword matching (≥2 Malay keywords → MS)
+
+### 7.13 qwen_assistant / qwen_node
+
+  (No ROS parameters. Hardcoded:)
+    - Model: qwen2.5:0.5b (via Ollama)
+    - System prompt: "You are PUSANTARA, a cultural heritage service robot.
+      Keep answers short and friendly."
+
+### 7.14 visitor_greeter
+
+  (No ROS parameters. Hardcoded:)
+    - Greeting cooldown: 15 seconds
+    - Person timeout: 5 seconds
+    - Engagement interval: 30–60 seconds (randomized)
+
+### 7.15 robot_face / face_node
+
+  (No ROS parameters. Hardcoded:)
+    - Window: 1000×700 (resizable), Pygame
+    - Blink interval: 3–6 seconds
+    - Gaze tracking: normalized to 640px frame width
+    - Speaking animation: triggered by /tts_text, duration = max(1.0, len(text) × 0.08)
+
+### 7.16 heritage_explainer
+
+  (No ROS parameters. Hardcoded heritage database:)
+    Tag 1: Wau Bulan (traditional kite from Kelantan)
+    Tag 2: Keris (traditional Malay dagger)
+    Tag 3: Hari Raya Aidilfitri
+    Tag 4: Batik (wax-resist dyeing textile art)
+    Tag 5: Nasi Kerabu (blue rice dish)
+    Tag 6: Wayang Kulit (shadow puppet performance)
+    - Minimum area: 1000 px²
+    - Repeat cooldown: 15 seconds per tag
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 8. TF Tree & Static Transforms
+
+```
+map (from AMCL / SLAM)
+ └── odom (from odometry_node, broadcast at 30 Hz)
+      └── base_link
+           ├── laser           (static: x=0.135, y=0.0, z=0.60, rpy=0,0,0)
+           ├── imu_link        (from URDF: x=0.0, y=0.0, z=0.20)
+           ├── camera_link     (from URDF: x=0.22, y=0.0, z=0.58)
+           │    └── camera_optical_frame (from URDF: rpy=-π/2, 0, -π/2)
+           ├── left_wheel      (from URDF: x=0.0, y=0.19, z=0.05)
+           ├── right_wheel     (from URDF: x=0.0, y=-0.19, z=0.05)
+           ├── front_caster    (from URDF: x=0.19)
+           ├── rear_caster     (from URDF: x=-0.19)
+           ├── screen_pole     (from URDF: x=-0.05)
+           ├── screen_link     (from URDF: x=0.02, z=0.62)
+           ├── screen_display  (from URDF: x=0.19, z=0.62)
+           └── front_marker    (from URDF: x=0.27, z=0.18)
+
+base_footprint → base_link  (from URDF: z=0.10)
+```
+
+Active runtime static transform command:
+```bash
+ros2 run tf2_ros static_transform_publisher \
+  0.135 0.0 0.60 0 0 0 base_link laser
+```
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 9. URDF / Robot Model
+
+File: src/pusantara_description/urdf/pusantara.urdf.xacro
+
+### Physical Dimensions (from URDF)
+
+| Link             | Geometry          | Dimensions (m)         | Position (from base_link)    |
+|------------------|-------------------|------------------------|------------------------------|
+| base_link        | Box               | 0.48 × 0.36 × 0.16    | z=0.08 (center)              |
+| left_wheel       | Cylinder          | r=0.05, l=0.04         | y=+0.19, z=0.05              |
+| right_wheel      | Cylinder          | r=0.05, l=0.04         | y=-0.19, z=0.05              |
+| front_caster     | Sphere            | r=0.025                | x=+0.19, z=0.025             |
+| rear_caster      | Sphere            | r=0.025                | x=-0.19, z=0.025             |
+| screen_pole      | Cylinder          | r=0.025, l=0.45        | x=-0.05, z=0.38 (center)     |
+| screen_link      | Box               | 0.36 × 0.03 × 0.22    | x=0.02, z=0.62               |
+| screen_display   | Box               | 0.01 × 0.28 × 0.16    | x=0.19, z=0.62               |
+| laser            | Cylinder          | r=0.055, l=0.04        | x=0.135, z=0.60              |
+| imu_link         | Box               | 0.05 × 0.04 × 0.015   | z=0.20                       |
+| camera_link      | Box               | 0.07 × 0.04 × 0.035   | x=0.22, z=0.58               |
+| front_marker     | Box               | 0.08 × 0.08 × 0.04    | x=0.27, z=0.18               |
+
+### Mass Properties
+
+| Link         | Mass (kg) |
+|-------------|-----------|
+| base_link   | 8.0       |
+| left_wheel  | 0.3       |
+| right_wheel | 0.3       |
+| laser       | 0.2       |
+| imu_link    | 0.05      |
+| camera_link | 0.1       |
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 10. Navigation Stack (Nav2)
+
+### 10.1 Launch: navigation.launch.py
+
+Arguments:
+  - map: default → <pkg>/maps/museum.yaml
+  - params_file: default → <pkg>/config/nav2_params.yaml
+
+Lifecycle-managed nodes: map_server, amcl, planner_server,
+  controller_server, bt_navigator, behavior_server
+
+### 10.2 AMCL (Localization)
+
+| Setting                | Value              |
+|------------------------|--------------------|
+| scan_topic             | /scan              |
+| base_frame_id          | base_link          |
+| odom_frame_id          | odom               |
+| global_frame_id        | map                |
+| min_particles          | 500                |
+| max_particles          | 2000               |
+| laser_min_range        | 0.12 m             |
+| laser_max_range        | 3.5 m              |
+| laser_model_type       | likelihood_field    |
+| update_min_d           | 0.05 m             |
+| update_min_a           | 0.05 rad           |
+| transform_tolerance    | 0.5 s              |
+| alpha1–alpha5          | 0.2 each           |
+
+### 10.3 Global Planner
+
+| Setting            | Value                          |
+|--------------------|--------------------------------|
+| plugin             | NavfnPlanner                   |
+| tolerance          | 0.25 m                         |
+| use_astar          | false (Dijkstra)               |
+| allow_unknown      | true                           |
+| expected_frequency  | 5.0 Hz                        |
+
+### 10.4 Local Controller (DWB)
+
+| Setting            | Value           |
+|--------------------|-----------------|
+| plugin             | DWBLocalPlanner |
+| controller_freq    | 10.0 Hz         |
+| max_vel_x          | 0.18 m/s        |
+| max_vel_theta      | 0.7 rad/s       |
+| acc_lim_x          | 0.5 m/s²        |
+| acc_lim_theta      | 1.0 rad/s²      |
+| sim_time           | 1.5 s           |
+| xy_goal_tolerance  | 0.20 m          |
+| yaw_goal_tolerance | 0.30 rad        |
+
+  Critics: RotateToGoal, Oscillation, BaseObstacle, GoalAlign, PathAlign,
+           PathDist, GoalDist
+
+### 10.5 Costmaps
+
+**Local Costmap:**
+  - Rolling window: 3×3 m, resolution 0.05 m
+  - robot_radius: 0.25 m
+  - Plugins: ObstacleLayer (/scan), InflationLayer (radius=0.35, cost_scaling=3.0)
+
+**Global Costmap:**
+  - Resolution: 0.05 m, robot_radius: 0.25 m
+  - Plugins: StaticLayer, ObstacleLayer (/scan), InflationLayer (radius=0.40, cost_scaling=3.0)
+
+### 10.6 Behavior Server
+
+  Behaviors: Spin, BackUp, Wait
+  max_rotational_vel: 0.5 rad/s
+
+### 10.7 Behavior Trees
+
+  - Simple Nav to Pose:   src/pusantara_navigation/config/simple_nav_to_pose.xml
+  - Simple Nav Through:   src/pusantara_navigation/config/simple_nav_through_poses.xml
+
+### 10.8 Map
+
+  - Default map: src/pusantara_navigation/maps/museum.yaml (+ museum.pgm)
+  - Saved maps: ~/vectra_ws/maps/
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 11. SLAM Configuration
+
+File: ~/vectra_ws/config/slam.yaml (slam_toolbox)
+
+| Setting                          | Value                         |
+|----------------------------------|-------------------------------|
+| solver_plugin                    | CeresSolver                   |
+| ceres_linear_solver              | SPARSE_NORMAL_CHOLESKY        |
+| ceres_trust_strategy             | LEVENBERG_MARQUARDT           |
+| odom_frame                       | odom                          |
+| map_frame                        | map                           |
+| base_frame                       | base_link                     |
+| scan_topic                       | /scan                         |
+| mode                             | mapping                       |
+| resolution                       | 0.05                          |
+| min_laser_range                  | 0.12                          |
+| max_laser_range                  | 3.5                           |
+| map_update_interval              | 5.0                           |
+| transform_publish_period         | 0.02                          |
+| minimum_travel_distance          | 0.5                           |
+| minimum_travel_heading           | 0.5                           |
+| do_loop_closing                  | true                          |
+| loop_search_maximum_distance     | 3.0                           |
+
+Save map command:
+```bash
+ros2 run nav2_map_server map_saver_cli -f ~/vectra_ws/maps/<map_name>
+```
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 12. Motor Controller Firmware (Arduino / PRIZM)
+
+The PRIZM controller runs an Arduino sketch that handles:
+
+### Motor Control
+  - Motor 1 = RIGHT wheel
+  - Motor 2 = LEFT wheel (power inverted: `prizm.setMotorPower(2, -leftSpeed)`)
+  - Speed range: -100 to +100
+  - Commands: W (forward 50), S (reverse 50), A (turn left), D (turn right),
+    X (stop), M,<right>,<left> (differential drive)
+
+### Encoder Publishing
+  - Published at 100 ms intervals (10 Hz)
+  - Format: `E,<left_ticks>,<right_ticks>`
+  - Left encoder = `prizm.readEncoderCount(2)` (direct)
+  - Right encoder = `-prizm.readEncoderCount(1)` (negated for convention)
+
+### Gripper / Arm Servos
+  - Servo 1: Left arm (0–180°)
+  - Servo 2: Right arm (0–180°, mirrored)
+  - Servo 3: Gripper (0 = closed, 180 = open)
+  - Sequences: TAKEIN (pick up), TAKEOUT (place down), OPEN, CLOSE,
+    FORWARD (arm forward), BACK (arm back)
+
+### Baud Rate
+  - 115200 (matching serial_bridge)
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 13. Serial Communication Protocol
+
+### Direction: Jetson → PRIZM (TX)
+
+| Command           | Format                  | Description                               |
+|-------------------|-------------------------|-------------------------------------------|
+| Stop              | `X\n`                   | Immediately stop both motors              |
+| Differential Drive | `M,<right>,<left>\n`   | Set motor powers (-100 to 100)            |
+| Forward           | `W\n`                   | Both motors forward at 50                 |
+| Reverse           | `S\n`                   | Both motors reverse at 50                 |
+| Turn Left         | `A\n`                   | Spin left (right +50, left -50)           |
+| Turn Right        | `D\n`                   | Spin right (right -50, left +50)          |
+| Gripper Open      | `OPEN\n`                | Open gripper servo                        |
+| Gripper Close     | `CLOSE\n`               | Close gripper servo                       |
+| Arm Forward       | `FORWARD\n`             | Rotate arm to forward position            |
+| Arm Back          | `BACK\n`                | Rotate arm to back position               |
+| Pick Up           | `TAKEIN\n`              | Full pick-up sequence                     |
+| Place Down        | `TAKEOUT\n`             | Full place-down sequence                  |
+
+### Direction: PRIZM → Jetson (RX)
+
+| Packet            | Format                  | Description                               |
+|-------------------|-------------------------|-------------------------------------------|
+| Encoder           | `E,<left>,<right>\n`    | Cumulative encoder tick counts (10 Hz)    |
+
+### Motor Command Pipeline
+
+```
+Nav2 controller    →  /cmd_vel (Twist)
+                        ↓
+              cmd_vel_to_robot_command  (differential drive math)
+                        ↓
+                   /robot_command (String: "M,right,left")
+                        ↓
+              motion_manager  (LiDAR safety check)
+                        ↓
+                   /safe_robot_command (String)
+                        ↓
+              serial_bridge  (USB serial write)
+                        ↓
+                   PRIZM Arduino  (motor power set)
+```
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 14. Perception Pipeline
+
+### 14.1 Camera → YOLO → Person Following
+
+```
+camera_node (640×480 @ 30 FPS)
+    ↓ /camera/image_raw
+yolo_detector (YOLOv8n, filters for "person" class only)
+    ↓ /yolo/detections (String: "person,conf,cx,cy,w,h;...")
+    ├── person_follower → /robot_command → motion_manager → serial_bridge
+    ├── robot_face (gaze tracking, expression change)
+    └── visitor_greeter (greeting/engagement/farewell logic)
+```
+
+### 14.2 Camera → AprilTag → Heritage Explanation
+
+```
+camera_node
+    ↓ /camera/image_raw
+apriltag_detector (pupil_apriltags, tag36h11, JSON output)
+    ↓ /apriltag/detections (JSON: id, center, area, normalized coords)
+    ├── apriltag_follower → /robot_command → motion_manager → serial_bridge
+    └── heritage_explainer → /tts_text → tts_node → speaker
+```
+
+### 14.3 Camera → Keris AR Demo
+
+```
+camera_node
+    ↓ /camera/image_raw
+keris_demo (MediaPipe Hands → grip detection → AR keris overlay)
+    ↓ /keris/image (annotated frame)
+    └── cv2.imshow (local display)
+```
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 15. Speech & AI Pipeline
+
+### 15.1 Voice Interaction Flow
+
+```
+Microphone (USB webcam)
+    ↓ (arecord, 16kHz mono, 4s chunks)
+speech_to_text (faster-whisper "base", wake word: "robot")
+    ↓ /speech_text (String: transcribed command after wake word removal)
+    ↓
+    ?  (Currently no subscriber bridges /speech_text → /user_text)
+    ↓
+qwen_assistant (Qwen 2.5:0.5b via Ollama, system prompt: PUSANTARA identity)
+    ↓ /tts_text (String: LLM response)
+tts_node (Piper TTS, auto EN/MS detection)
+    ↓ WAV file → aplay → speaker
+```
+
+### 15.2 Admin Console Text Flow
+
+```
+admin_console (PyQt5 chat input)
+    ├── /user_text → qwen_node → /tts_text → tts_node → speaker
+    └── /tts_text (direct TTS button) → tts_node → speaker
+```
+
+### 15.3 TTS Language Detection Logic
+
+  Malay keywords: selamat, muzium, warisan, budaya, sejarah, melaka,
+    terima kasih, sila, anda, bangunan, tradisional, kesultanan, malaysia
+  If ≥ 2 keywords found → uses Malay model (ms_MY-medium.onnx)
+  Otherwise → English model (en_US-lessac-medium.onnx)
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 16. Cultural Exhibition Applications
+
+### 16.1 Heritage Explainer (AprilTag-Triggered Narration)
+
+  Subscribes: /apriltag/detections
+  Publishes:  /tts_text
+  Database:
+    Tag 1 → Wau Bulan (traditional Kelantan kite)
+    Tag 2 → Keris (Malay dagger of bravery)
+    Tag 3 → Hari Raya Aidilfitri
+    Tag 4 → Batik (wax-resist textile art)
+    Tag 5 → Nasi Kerabu (blue rice dish)
+    Tag 6 → Wayang Kulit (shadow puppet theatre)
+  Cooldown: 15 seconds per tag, minimum area: 1000 px²
+
+### 16.2 Food Quiz (Tkinter GUI)
+
+  4 questions about Malaysian food heritage with images:
+    - Nasi Kerabu (nasi_kerabu.jpg)
+    - Satay (satay.jpg)
+    - Teh Tarik (tehtarik.jpg)
+    - Cendol (cendol.jpg)
+  Features: Sound effects (generated WAV tones), TTS voice narration,
+    achievement ranks (Master/Expert/Explorer/Beginner), randomized order.
+
+### 16.3 Batik Designer (Tkinter Canvas)
+
+  Canvas: 1000×700 pixels
+  Features: 6 colors, adjustable brush (1–20px), 3 brush styles
+    (normal, dotted, calligraphy), 4 symmetry modes
+    (none, horizontal, vertical, four-way), 6 traditional motifs
+    (Flower, Lotus, Leaf, Bunga Raya, Awan Larat, Pucuk Rebung),
+    "Inspire Me" template, Gallery viewer, Save to ~/batik_designs/
+
+### 16.4 Keris AR Demo (MediaPipe + OpenCV)
+
+  Subscribes: /camera/image_raw
+  Publishes:  /keris/image
+  Uses MediaPipe Hands for real-time hand tracking, detects fist/grip
+  with hysteresis (enter: 0.95, exit: 1.15), overlays a keris PNG
+  scaled to palm width × 5, correctly rotated to hand angle using
+  auto-detected handle anchor point. Features: exponential smoothing
+  (α=0.75), debug overlays (angle, palm width, grip state, FPS).
+
+### 16.5 Visitor Greeter (Auto-Engagement)
+
+  Subscribes: /yolo/detections
+  Publishes:  /tts_text
+  States: Idle → Greeting → Engaged → Farewell → Idle
+  7 greeting messages, 9 engagement messages, 7 goodbye messages
+  (randomized per event). Engagement prompts every 30–60 seconds.
+
+### 16.6 Robot Face (Pygame Animated Display)
+
+  Subscribes: /yolo/detections, /tts_text
+  Features: Animated eyes with gaze tracking (follows detected person),
+  random blink (3–6s interval, 120ms duration), expression changes
+  (neutral → smile → excited based on person count), speaking animation
+  (mouth open/close at 20 Hz), status text overlay.
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 17. Admin Console (PyQt5 GUI)
+
+Package: pusantara_admin
+Modules: admin_console.py, camera_widget.py, lidar_widget.py,
+         system_monitor.py, node_manager.py
+
+### 17.1 Features
+
+  - Login system with 3 roles: Guest / Operator / Admin
+  - 5 tabbed views: Dashboard, Perception, Operation & AI, Exhibition Apps, System & Logs
+  - Live camera feed widget (CameraWidget)
+  - Live LiDAR polar plot (LidarWidget)
+  - System resource monitoring (CPU, RAM, temperature)
+  - Manual teleoperation (D-pad: M,50,50 / M,-50,-50 / M,-30,30 / M,30,-30 / M,0,0)
+  - Qwen AI chat interface (/user_text → /tts_text)
+  - Direct TTS text entry
+  - Node launcher/manager (start/stop individual nodes)
+  - Emergency stop button (publishes M,0,0 to /safe_robot_command)
+  - Command history log
+  - AprilTag & YOLO detection monitors
+  - Speech interaction log
+  - Responsive screen sizing (VNC compatible)
+
+### 17.2 Role Permissions
+
+| Feature                    | Guest | Operator | Admin |
+|----------------------------|-------|----------|-------|
+| View Dashboard             | ✓     | ✓        | ✓     |
+| View Perception Feeds      | ✓     | ✓        | ✓     |
+| Start/Stop Nodes           | ✗     | ✓        | ✓     |
+| Manual Teleoperation       | ✗     | ✓        | ✓     |
+| AI Chat / TTS              | ✗     | ✓        | ✓     |
+| Exhibition App Launch      | ✗     | ✗        | ✓     |
+| Emergency Stop             | ✗     | ✓        | ✓     |
+| E-Stop Disable/Clear       | ✗     | ✗        | ✓     |
+
+### 17.3 Admin Console ROS Topics
+
+  Publishers:  /robot_command, /safe_robot_command, /user_text, /tts_text
+  Subscribers: /camera/image_raw, /scan, /robot_command, /safe_robot_command,
+               /speech/text, /tts_text, /user_text, /apriltag/detections,
+               /yolo/detections
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 18. Configuration Files
+
+| File                                                              | Purpose                             |
+|-------------------------------------------------------------------|-------------------------------------|
+| ~/vectra_ws/config/slam.yaml                                      | SLAM Toolbox parameters             |
+| src/vectra_odometry/config/odometry.yaml                          | Odometry node parameters            |
+| src/pusantara_navigation/config/nav2_params.yaml                  | Full Nav2 parameter set             |
+| src/pusantara_navigation/config/simple_nav_to_pose.xml            | BT XML for single goal navigation   |
+| src/pusantara_navigation/config/simple_nav_through_poses.xml      | BT XML for multi-waypoint navigation|
+| src/pusantara_navigation/maps/museum.yaml + museum.pgm            | Default occupancy grid map          |
+| src/pusantara_description/urdf/pusantara.urdf.xacro               | Robot URDF model                    |
+| /tmp/bno055_cal.json                                              | BNO055 calibration offsets (auto)   |
+| /home/orin_nano/tts/en_US-lessac-medium.onnx                      | Piper English TTS model             |
+| /home/orin_nano/tts/ms_MY-medium.onnx                             | Piper Malay TTS model               |
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 19. Operational Commands Reference
+
+### Map Lifecycle Checks
+```bash
+ros2 lifecycle get /map_server
+ros2 lifecycle get /amcl
+ros2 lifecycle get /planner_server
+ros2 lifecycle get /controller_server
+ros2 lifecycle get /bt_navigator
+```
+
+### Set Initial Pose
+```bash
+ros2 topic pub /initialpose geometry_msgs/msg/PoseWithCovarianceStamped \
+  "{header: {frame_id: 'map'}, pose: {pose: {position: {x: 0.0, y: 0.0, z: 0.0}, \
+  orientation: {w: 1.0}}, covariance: [0.25, 0, 0, 0, 0, 0, 0, 0.25, 0, 0, 0, 0, \
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0685]}}" --once
+```
+
+### Clear Costmaps
+```bash
+ros2 service call /global_costmap/clear_entirely_global_costmap nav2_msgs/srv/ClearEntireCostmap "{}"
+ros2 service call /local_costmap/clear_entirely_local_costmap nav2_msgs/srv/ClearEntireCostmap "{}"
+```
+
+### Save Map
+```bash
+ros2 run nav2_map_server map_saver_cli -f ~/vectra_ws/maps/<name>
+```
+
+### Live Introspection
+```bash
+ros2 topic list -t
+ros2 service list
+ros2 param list
+ros2 node list
+ros2 topic echo /odom
+ros2 topic hz /scan
+```
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 20. Data Flow Diagrams (Mermaid)
+
+### 20.1 Complete Motor Command Pipeline
+
+```mermaid
+flowchart LR
+    subgraph Nav2["Navigation Stack"]
+        CS[controller_server]
+    end
+
+    subgraph Behavior["Behavior Nodes"]
+        PF[person_follower]
+        AF[apriltag_follower]
+        AC[admin_console<br>teleop]
+    end
+
+    subgraph Safety["Safety Layer"]
+        CVB[cmd_vel_bridge]
+        MM[motion_manager]
+    end
+
+    subgraph Hardware["Hardware"]
+        SB[serial_bridge]
+        PRIZM[PRIZM Arduino]
+    end
+
+    subgraph Sensors["Sensors"]
+        LIDAR[LiDAR /scan]
+    end
+
+    CS -->|/cmd_vel<br>Twist| CVB
+    CVB -->|/robot_command<br>M,R,L| MM
+    PF -->|/robot_command| MM
+    AF -->|/robot_command| MM
+    AC -->|/robot_command| MM
+    LIDAR -->|/scan| MM
+    MM -->|/safe_robot_command| SB
+    AC -.->|E-STOP<br>/safe_robot_command| SB
+    SB -->|USB Serial TX| PRIZM
+    PRIZM -->|USB Serial RX<br>E,left,right| SB
+```
+
+### 20.2 Perception & AI Data Flow
+
+```mermaid
+flowchart TD
+    CAM[camera_node<br>640x480 @ 30Hz] -->|/camera/image_raw| YOLO[yolo_detector<br>YOLOv8n]
+    CAM -->|/camera/image_raw| AT[apriltag_detector<br>tag36h11]
+    CAM -->|/camera/image_raw| KD[keris_demo<br>MediaPipe AR]
+
+    YOLO -->|/yolo/detections| PF[person_follower]
+    YOLO -->|/yolo/detections| VG[visitor_greeter]
+    YOLO -->|/yolo/detections| RF[robot_face]
+
+    AT -->|/apriltag/detections| AF[apriltag_follower]
+    AT -->|/apriltag/detections| HE[heritage_explainer]
+
+    VG -->|/tts_text| TTS[tts_node<br>Piper TTS]
+    HE -->|/tts_text| TTS
+    RF -.->|subscribes /tts_text| TTS
+
+    MIC[Microphone] -->|arecord| STT[speech_to_text<br>Whisper]
+    STT -->|/speech_text| BRIDGE["bridge?"]
+    BRIDGE -.-> QWEN[qwen_assistant<br>Qwen 2.5]
+    QWEN -->|/tts_text| TTS
+    TTS -->|aplay| SPK[Speaker]
+```
+
+### 20.3 Odometry & Navigation Data Flow
+
+```mermaid
+flowchart TD
+    subgraph Sensors
+        ENC["PRIZM Encoders<br>(10 Hz)"]
+        IMU["BNO055 IMU<br>(100 Hz)"]
+        LID["LiDAR<br>(/scan)"]
+    end
+
+    subgraph Odometry
+        SB[serial_bridge] -->|/wheel_encoder<br>Int32MultiArray| OD[odometry_node]
+        IMU -->|/imu/data<br>Imu| OD
+        OD -->|/odom<br>Odometry| OUT1[SLAM / Nav2]
+        OD -->|TF: odom→base_link| OUT2[TF tree]
+    end
+
+    subgraph SLAM
+        LID -->|/scan| ST[slam_toolbox]
+        OD -->|/odom| ST
+        ST -->|TF: map→odom| TF2[TF tree]
+        ST -->|/map| MAP[Map Server]
+    end
+
+    subgraph Nav2
+        MAP --> AMCL
+        LID --> AMCL[AMCL]
+        AMCL -->|TF: map→odom| TF3[TF tree]
+        MAP --> GC[Global Costmap]
+        LID --> GC
+        LID --> LC[Local Costmap]
+        GC --> PLAN[Planner Server<br>NavFn]
+        PLAN --> CTRL[Controller Server<br>DWB]
+        LC --> CTRL
+        CTRL -->|/cmd_vel| CVB[cmd_vel_bridge]
+    end
+
+    ENC -->|Serial RX| SB
+```
+
+───────────────────────────────────────────────────────────────────────────────
+
+## 21. Dependency Graph (Mermaid)
+
+### 21.1 Package Dependencies (Topic-Based)
+
+```mermaid
+graph TD
+    camera_node --> vectra_yolo
+    camera_node --> apriltag_detector
+    camera_node --> keris_demo
+
+    vectra_yolo --> person_follower
+    vectra_yolo --> visitor_greeter
+    vectra_yolo --> robot_face
+
+    apriltag_detector --> apriltag_follower
+    apriltag_detector --> heritage_explainer
+
+    person_follower --> motion_manager
+    apriltag_follower --> motion_manager
+    cmd_vel_bridge --> motion_manager
+
+    motion_manager --> serial_bridge
+
+    serial_bridge --> vectra_odometry
+    bno055_driver --> vectra_odometry
+
+    heritage_explainer --> tts_node
+    visitor_greeter --> tts_node
+    qwen_assistant --> tts_node
+    speech_to_text -.-> qwen_assistant
+
+    pusantara_admin --> camera_node
+    pusantara_admin --> serial_bridge
+    pusantara_admin --> qwen_assistant
+    pusantara_admin --> tts_node
+
+    vectra_odometry --> slam_toolbox
+    hls_lfcd_lds_driver --> slam_toolbox
+    hls_lfcd_lds_driver --> motion_manager
+    hls_lfcd_lds_driver --> nav2
+
+    vectra_odometry --> nav2
+    nav2 --> cmd_vel_bridge
+
+    classDef hw fill:#4a90d9,color:white
+    classDef safety fill:#e74c3c,color:white
+    classDef perception fill:#27ae60,color:white
+    classDef interaction fill:#f39c12,color:white
+    classDef nav fill:#8e44ad,color:white
+    classDef admin fill:#95a5a6,color:white
+
+    class camera_node,hls_lfcd_lds_driver,bno055_driver,serial_bridge hw
+    class motion_manager,cmd_vel_bridge safety
+    class vectra_yolo,apriltag_detector,keris_demo perception
+    class tts_node,speech_to_text,qwen_assistant,visitor_greeter,robot_face,heritage_explainer,food_quiz,batik_designer interaction
+    class vectra_odometry,slam_toolbox,nav2 nav
+    class pusantara_admin admin
+```
+
+───────────────────────────────────────────────────────────────────────────────
+
+> NOTE: The exact set of topics, services, and parameters may change depending
+> on which nodes are active. Use `ros2 topic list -t`, `ros2 service list`,
+> and `ros2 param list` for live introspection.
+
+───────────────────────────────────────────────────────────────────────────────
+
+*Generated on 2026-07-01 by Antigravity AI assistant.*
+*Source: Complete analysis of all 25 packages in ~/vectra_ws/src.*

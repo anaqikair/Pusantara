@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>pusantara_demo_loop</name>
+  <version>0.0.1</version>
+  <description>PUSANTARA full demo loop GUI using ROS2, Nav2 and heritage apps</description>
+
+  <maintainer email="orin_nano@example.com">orin_nano</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav2_msgs</depend>
+  <depend>action_msgs</depend>
+  <depend>sensor_msgs</depend>
+
+  <exec_depend>tkinter</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
