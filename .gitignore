@@ -9,14 +9,13 @@ __pycache__/
 *.pyo
 .pytest_cache/
 
-# Editors and temporary files
+# Editor and temporary files
 .vscode/
 .idea/
 *~
 *.tmp
-*.log
 
-# Secrets
+# Credentials and secrets
 .env
 .env.*
 *.key
