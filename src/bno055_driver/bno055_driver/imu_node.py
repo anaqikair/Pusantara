@@ -20,7 +20,7 @@ Publishes:
   /imu/cal_status    std_msgs/String   (JSON: sys/gyro/accel/mag 0-3)
 
 Parameters:
-  bus          int     I2C bus number          (default: 1)
+  bus          int     I2C bus number          (default: 7)
   address      int     I2C address             (default: 0x28)
   frame_id     str     TF frame               (default: "imu_link")
   rate         float   Publish rate Hz         (default: 100.0)
@@ -82,7 +82,7 @@ class BNO055:
     _SCALE_MAG   = 16.0
     _SCALE_QUAT  = 16384.0
 
-    def __init__(self, bus: int = 1, addr: int = 0x28) -> None:
+    def __init__(self, bus: int = 7, addr: int = 0x28) -> None:
         self._bus  = SMBus(bus)
         self._addr = addr
         self._reset_and_init()
@@ -296,7 +296,7 @@ class IMUNode(Node):
     def __init__(self) -> None:
         super().__init__("bno055_imu")
 
-        self.declare_parameter("bus",           1)
+        self.declare_parameter("bus",           7)
         self.declare_parameter("address",       0x28)
         self.declare_parameter("frame_id",      "imu_link")
         self.declare_parameter("rate",          100.0)

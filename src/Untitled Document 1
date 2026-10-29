@@ -1,0 +1,24 @@
+ros2 run bno055_driver imu_node --ros-args -p bus:=7 -p address:=40
+ros2 run hls_lfcd_lds_driver hlds_laser_publisher
+ros2 run serial_bridge bridge_node 
+ros2 run motion_manager motion_manager 
+
+ros2 run serial_bridge command_sender 
+ros2 launch pusantara_bringup robot.launch.py
+ros2 run cmd_vel_bridge cmd_vel_to_robot_command
+ros2 launch slam_toolbox online_async_launch.py   slam_params_file:=$HOME/vectra_ws/config/slam.yaml
+
+
+
+source /opt/ros/humble/setup.bash
+
+mkdir -p ~/vectra_ws/maps
+
+ros2 run nav2_map_server map_saver_cli \
+  -t /map \
+  -f ~/vectra_ws/maps/NAME
+
+
+
+ros2 launch pusantara_navigation navigation.launch.py use_sim_time:=False autostart:=True map:=$HOME/vectra_ws/maps/MAPIRO1.yaml params_file:=$HOME/vectra_ws/src/pusantara_navigation/config/nav2_params.yaml
+

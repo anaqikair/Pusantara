@@ -71,6 +71,18 @@ def generate_launch_description():
             name='serial_bridge',
             output='screen'
         ),
+        
+        
+        ##################################################
+        # cmd_vel_to_robot_command
+        ##################################################
+
+        Node(
+            package='cmd_vel_bridge',
+            executable='cmd_vel_to_robot_command',
+            name='cmd_vel_bridge',
+            output='screen'
+        ),
 
         ##################################################
         # Odometry

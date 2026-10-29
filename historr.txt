@@ -1,0 +1,1000 @@
+  852  export ROS_DOMAIN_ID=25
+  853  ros2 run pusantara_demo_loop demo_loop
+  854  pkill -f pusantara_demo_loop
+  855  pkill -f demo_loop.py
+  856  pkill -f pusantara_demo_loop
+  857  pkill -f demo_loop.py
+  858  pkill -f python3
+  859  sudo pkill -f python3
+  860  colcon build --packages-select pusantara_demo_loop
+  861  ros2 run pusantara_demo_loop demo_loop
+  862  colcon build --symlink-install pusantara_demo_loop
+  863  colcon build --symlink-install 
+  864  cd vectra_ws/
+  865  colcon build --symlink-install 
+  866  ros2 run pusantara_demo_loop demo_loop
+  867  cd ~/vectra_ws
+  868  rm -rf build/pusantara_demo_loop install/pusantara_demo_loop log/latest_build
+  869  colcon build --packages-select pusantara_demo_loop --symlink-install
+  870  source /opt/ros/humble/setup.bash
+  871  source ~/vectra_ws/install/setup.bash
+  872  export ROS_DOMAIN_ID=1
+  873  ros2 run pusantara_demo_loop demo_loop
+  874  cd ~/vectra_ws
+  875  colcon build --packages-select pusantara_demo_loop --symlink-install
+  876  source /opt/ros/humble/setup.bash
+  877  source ~/vectra_ws/install/setup.bash
+  878  export ROS_DOMAIN_ID=1
+  879  ros2 run pusantara_demo_loop demo_loop
+  880  cd Desktop/featur
+  881  cd Desktop/feature
+  882  ls
+  883  cd cultural_performance/
+  884  cls
+  885  ls
+  886  cd admin_console/
+  887  ls
+  888  python3 performance_panel.py 
+  889  cd ..
+  890  tree
+  891  cd ~/vectra_ws
+  892  colcon build --packages-select pusantara_demo_loop --symlink-install
+  893  ros2 run pusantara_demo_loop demo_loop
+  894  hostname -I
+  895  cd ~/vectra_ws/src
+  896  ros2 pkg create esp32_wifi_receiver --build-type ament_python --dependencies rclpy std_msgs
+  897  sudo apt update
+  898  sudo apt install python3-flask -y
+  899  cd ~/vectra_ws/src/esp32_wifi_receiver/esp32_wifi_receiver
+  900  nano esp32_http_receiver.py
+  901  cd ~/vectra_ws/src/esp32_wifi_receiver
+  902  nano setup.py
+  903  gedit setup.py
+  904  cd ~/vectra_ws
+  905  colcon build --packages-select esp32_wifi_receiver
+  906  source install/setup.bash
+  907  ros2 run esp32_wifi_receiver esp32_http_receiver
+  908  ros2 topic list
+  909  ros2 topic echo /imu/data 
+  910  sudo apt update
+  911  sudo apt install python3-pip -y
+  912  pip3 install Jetson.GPIO
+  913  cd ~/vectra_ws/src
+  914  ros2 pkg create dht11_gpio   --build-type ament_python   --dependencies rclpy std_msgs sensor_msgs
+  915  cd ~/vectra_ws/src/dht11_gpio/dht11_gpio
+  916  nano dht11_node.py
+  917  cd ~/vectra_ws/src/dht11_gpio
+  918  gedit setup.py
+  919  cd ~/vectra_ws
+  920  colcon build --symlink-install --packages-select dht11_gpio
+  921  source install/setup.bash
+  922  source /opt/ros/humble/setup.bash
+  923  source ~/vectra_ws/install/setup.bash
+  924  export ROS_DOMAIN_ID=25
+  925  ros2 run dht11_gpio dht11_node
+  926  sudo -E env "PYTHONPATH=$PYTHONPATH" ros2 run dht11_gpio dht11_node
+  927  sudo -E env "PYTHONPATH=$PYTHONPATH" ros2 run dht11_gpio dht11_node
+  928  source /opt/ros/humble/setup.bash
+  929  source ~/vectra_ws/install/setup.bash
+  930  sudo -E env "PYTHONPATH=$PYTHONPATH" ros2 run dht11_gpio dht11_node
+  931  source /opt/ros/humble/setup.bash
+  932  source ~/vectra_ws/install/setup.bash
+  933  export ROS_DOMAIN_ID=25
+  934  export JETSON_MODEL_NAME=JETSON_ORIN_NANO
+  935  ros2 run dht11_gpio dht11_node
+  936  cd ..
+  937  cd test
+  938  python3 dht11_test.py 
+  939  cd ..
+  940  hostname -I
+  941  ros2 run esp32_wifi_receiver esp32_http_receiver
+  942  source ~/vectra_ws/install/setup.bash
+  943  ros2 topic echo /esp32/sensor_data
+  944  ros2 run bno055_driver imu_node
+  945  cd test
+  946  python3 dht11_test.py 
+  947  cleat
+  948  clear
+  949  firefox
+  950  pkill -9
+  951  pkill --help
+  952  firefox
+  953  python3 dht11_test.py 
+  954  cd test
+  955  python3 dht11_test.py 
+  956  cd ~/test
+  957  export JETSON_MODEL_NAME=JETSON_ORIN_NANO
+  958  export BLINKA_FORCEBOARD=JETSON_ORIN_NANO
+  959  python3 dht11_test.py
+  960  python3 dht112.py
+  961  ros2 run bno055_driver imu_node
+  962  python3 dht11.py 
+  963  python3 dht11test.py 
+  964  ls
+  965  python3 dht11test.py 
+  966  ros2 launch pusantara_bringup robot.launch.py
+  967  ros2 run tts_node tts_node
+  968  ros2 launch pusantara_bringup robot.launch.py
+  969  ros2 run motion_manager motion_manager
+  970  ros2 run serial_bridge command_sender
+  971  ros2 run serial_bridge command_sender
+  972  ros2 run tts_node tts_sender
+  973  rviz2
+  974  ros2 launch pusantara_bringup robot.launch.py
+  975  ros2 echo topic list
+  976  ros2 topic list
+  977  ros2 topic echo /wheel_encoder 
+  978  ros2 topic echo /safe_robot_command 
+  979  ros2 topic echo /robot_command 
+  980  ros2 launch slam_toolbox online_async_launch.py slam_params_file:=/home/orin_nano/vectra_ws/config/slam.yaml
+  981  ros2 run tts_node tts_node
+  982  ros2 run nav2_map_server map_saver_cli -f ~/vectra_ws/maps/makmal1
+  983  ros2 run nav2_map_server map_saver_cli -f ~/vectra_ws/maps/makmal2
+  984  M,20,-20
+  985  ros2 run nav2_map_server map_saver_cli -f ~/vectra_ws/maps/makmal3
+  986  ros2 topic list
+  987  ros2 launch pusantara_navigation navigation.launch.py   use_sim_time:=False autostart:=True   map:=$HOME/vectra_ws/maps/makmal3.yaml   params_file:=$HOME/vectra_ws/src/pusantara_navigation/config/nav2_params.yaml
+  988  ros2 run cmd_vel_bridge cmd_vel_to_robot_command
+  989  ros2 run camera_node webcam_pub
+  990  ros2 run apriltag_detector apriltag_detector --ros-args -p show_ui:=true
+  991  ros2 run apriltag_detector apriltag_detector --ros-args -p show_ui:=true
+  992  ros2 run cavecare_mission cave_mission_manager
+  993  ros2 topic pub --once /cave_node/status std_msgs/msg/String \
+  994  cd ~/vectra_ws/src
+  995  ros2 pkg create cavecare_mission --build-type ament_python --dependencies rclpy std_msgs sensor_msgs geometry_msgs nav2_msgs cv_bridge
+  996  colcon list
+  997  cd .nano ~/vectra_ws/src/cavecare_mission/cavecare_mission/cave_mission_manager.py
+  998  nano ~/vectra_ws/src/cavecare_mission/cavecare_mission/cave_mission_manager.py
+  999  nano ~/vectra_ws/src/cavecare_mission/setup.py
+ 1000  `cd ~/vectra_ws
+ 1001  colcon build --packages-select cavecare_mission
+ 1002  source install/setup.bash
+ 1003  cd ~/vectra_ws
+ 1004  colcon build --packages-select cavecare_mission
+ 1005  source install/setup.bash
+ 1006  source ~/vectra_ws/install/setup.bash
+ 1007  export ROS_DOMAIN_ID=1
+ 1008  ros2 launch pusantara_bringup robot.launch.py
+ 1009  ros2 topic pub --once /cave_node/status std_msgs/msg/String "{data: '{\"node_id\":\"node_1\",\"panel_id\":\"panel_a\",\"tag_id\":1,\"temperature\":28.5,\"humidity\":82.0,\"status\":\"DANGER\"}'}"
+ 1010  sudo apt install python3-tk
+ 1011  nano ~/vectra_ws/src/cavecare_mission/cavecare_mission/cavecare_panel.py
+ 1012  #!/usr/bin/env python3
+ 1013  import json
+ 1014  import math
+ 1015  import os
+ 1016  import tkinter as tk
+ 1017  from tkinter import ttk, messagebox
+ 1018  import rclpy
+ 1019  from rclpy.node import Node
+ 1020  from rclpy.action import ActionClient
+ 1021  from std_msgs.msg import String
+ 1022  from geometry_msgs.msg import PoseWithCovarianceStamped
+ 1023  from geometry_msgs.msg import Twist
+ 1024  from geometry_msgs.msg import PoseStamped
+ 1025  from nav2_msgs.action import NavigateToPose
+ 1026  WAYPOINT_FILE = os.path.expanduser('~/vectra_data/cavecare_waypoints.json')
+ 1027  def yaw_to_quaternion(yaw):
+ 1028  def quaternion_to_yaw(q):
+ 1029  class CaveCareRosNode(Node):
+ 1030  class CaveCarePanel:
+ 1031  def main(args=None):
+ 1032  if __name__ == '__main__':;     main()
+ 1033  nano ~/vectra_ws/src/cavecare_mission/setup.py
+ 1034  cd ~/vectra_ws
+ 1035  colcon build --packages-select cavecare_mission
+ 1036  source install/setup.bash
+ 1037  gedit ~/vectra_ws/src/cavecare_mission/cavecare_mission/cave_mission_manager.py
+ 1038  cd ~/vectra_ws
+ 1039  colcon build --packages-select cavecare_mission
+ 1040  source install/setup.bash
+ 1041  ros2 run cavecare_mission cave_mission_manager
+ 1042  cd ~/vectra_ws
+ 1043  colcon build --packages-select cavecare_mission
+ 1044  source install/setup.bash
+ 1045  export ROS_DOMAIN_ID=1
+ 1046  ros2 run cavecare_mission cavecare_panel
+ 1047  cd ~/vectra_ws
+ 1048  colcon build --packages-select cavecare_mission
+ 1049  source install/setup.bash
+ 1050  export ROS_DOMAIN_ID=1\
+ 1051  ros2 run cavecare_mission cavecare_panel
+ 1052  colcon build --packages-select cavecare_mission
+ 1053  ros2 run cavecare_mission cavecare_panel
+ 1054  ros2 node list
+ 1055  ros2 run mold_detector mold_detector_node --ros-args -p image_topic:=/image_raw
+ 1056  ros2 run mold_detector mold_detector_node
+ 1057  cd ~/vectra_ws
+ 1058  colcon build --symlink-install
+ 1059  source install/setup.bash
+ 1060  ros2 run cavecare_mission cavecare_panel
+ 1061  colcon list
+ 1062  colcon build --packages-select cavecare_mission
+ 1063  ros2 run cavecare_mission cavecare_panel
+ 1064  cd ~/vectra_ws
+ 1065  colcon build --packages-select cavecare_mission
+ 1066  ros2 run cavecare_mission cavecare_panel
+ 1067  pkill -f ros2
+ 1068  ros2 node list
+ 1069  # 1. Try graceful shutdown first
+ 1070  pkill -2 -f "ros2 launch"
+ 1071  pkill -2 -f "ros2 run"
+ 1072  pkill -2 -f "nav2|amcl|map_server|planner_server|controller_server|bt_navigator|behavior_server|lifecycle_manager"
+ 1073  pkill -2 -f "apriltag_detector|cave_mission_manager|cmd_vel_to_robot_command|hlds_laser_publisher|imu_node|motion_manager|odometry_node|serial_bridge|tts_node|webcam_publisher|static_transform_publisher"
+ 1074  sleep 3
+ 1075  # 2. Check
+ 1076  ros2 node list
+ 1077  pkill -9 -f "nav2|amcl|map_server|planner_server|controller_server|bt_navigator|behavior_server|lifecycle_manager"
+ 1078  pkill -9 -f "apriltag_detector|cave_mission_manager|cmd_vel_to_robot_command|hlds_laser_publisher|imu_node|motion_manager|odometry_node|serial_bridge|tts_node|webcam_publisher|static_transform_publisher"
+ 1079  ros2 node list
+ 1080  pkill -9 -f "apriltag_detector|cave_mission_manager|cmd_vel_to_robot_command|hlds_laser_publisher|imu_node|motion_manager|odometry_node|serial_bridge|tts_node|webcam_publisher|static_transform_publisher"
+ 1081  ros2 node list
+ 1082  # reset ROS daemon first, in case it is a ghost node
+ 1083  ros2 daemon stop
+ 1084  ros2 daemon start
+ 1085  ros2 node list
+ 1086  pgrep -af "webcam|camera|camera_node|python|ros2"
+ 1087  kill -9 4987
+ 1088  ros2 node list
+ 1089  ros2 run cavecare_mission cavecare_panel
+ 1090  ros2 run esp32_wifi_receiver esp32_http_receiver
+ 1091  ros2 run cmd_vel_bridge cmd_vel_to_robot_command
+ 1092  ros2 run mold_detector mold_detector_node
+ 1093  ros2 run camera_node webcam_pub
+ 1094  ros2 run apriltag_detector apriltag_detector --ros-args -p show_ui:=true
+ 1095  rviz2
+ 1096  ros2 launch pusantara_bringup robot.launch.py
+ 1097  ros2 launch pusantara_navigation navigation.launch.py use_sim_time:=False autostart:=True map:=$HOME/vectra_ws/maps/makmal3.yaml params_file:=$HOME/vectra_ws/src/pusantara_navigation/config/nav2_params.yaml
+ 1098  cd ..
+ 1099  ros2 launch pusantara_navigation navigation.launch.py
+ 1100  CD ..
+ 1101  cd ..
+ 1102  ls
+ 1103  cd cultural_performance/
+ 1104  ls
+ 1105  cd admin_console/
+ 1106  ls
+ 1107  python3 performance_panel.py 
+ 1108  vncserver -list
+ 1109  vncserver -kill :2
+ 1110  vncserver -kill :5902
+ 1111  pkill -f Xtigervnc
+ 1112  pkill -f tigervnc
+ 1113  vncserver -list
+ 1114  rm -f /tmp/.X2-lock
+ 1115  rm -f /tmp/.X11-unix/X2
+ 1116  ps -fp 6166
+ 1117  pgrep -af "Xtigervnc|Xvnc|vnc"
+ 1118  ss -ltnp | grep 5902
+ 1119  ls -la ~/.vnc
+ 1120  rm -f ~/.vnc/*:2.pid
+ 1121  rm -f ~/.vnc/*:2.log
+ 1122  rm -f /tmp/.X2-lock
+ 1123  rm -f /tmp/.X11-unix/X2
+ 1124  vncserver -list
+ 1125  rm -f ~/.vnc/*:2.pid
+ 1126  rm -f /tmp/.X2-lock
+ 1127  rm -f /tmp/.X11-unix/X2
+ 1128  vncserver :2 -geometry 1024x600 -depth 24 -localhost no
+ 1129  ros2 launch pusantara_bringup robot.launch.py
+ 1130  ros2 run serial_bridge command_sender
+ 1131  ros2 launch slam_toolbox online_async_launch.py slam_params_file:=/home/orin_nano/vectra_ws/config/slam.yaml
+ 1132  cd vectra_
+ 1133  cd vectra_ws/maps/
+ 1134  ls
+ 1135  ros2 launch pusantara_navigation navigation.launch.py use_sim_time:=False autostart:=True map:=$HOME/vectra_ws/maps/DEMO.yaml params_file:=$HOME/vectra_ws/src/pusantara_navigation/config/nav2_params.yaml
+ 1136  ros2 run nav2_map_server map_saver_cli -f ~/vectra_ws/maps/DEMO
+ 1137  cd Desktop/
+ 1138  cd feature/
+ 1139  ls
+ 1140  cd ar_kompang-20260702T040102Z-3-001/
+ 1141  python3 ar_kompang/
+ 1142  ls
+ 1143  cd ar_kompang/
+ 1144  ls
+ 1145  python3 ar_kompang.py 
+ 1146  rviz2
+ 1147  cd ..
+ 1148  ls
+ 1149  cd Sumazau\ Tutorial/
+ 1150  ls
+ 1151  python3 sumazau_tutorial.py 
+ 1152  sudo apt update
+ 1153  sudo apt install -y git
+ 1154  git config --global user.name "anaqikair"
+ 1155  git config --global user.email "anaqikair@gmail.com"
+ 1156  git config --global --list
+ 1157  cd ~/vectra_ws
+ 1158  ls
+ 1159  cat > .gitignore <<'EOF'
+ 1160  # ROS 2 / colcon generated folders
+ 1161  build/
+ 1162  install/
+ 1163  log/
+ 1164  # Python generated files
+ 1165  __pycache__/
+ 1166  *.py[cod]
+ 1167  .pytest_cache/
+ 1168  .mypy_cache/
+ 1169  # Editor files
+ 1170  .vscode/
+ 1171  .idea/
+ 1172  *~
+ 1173  .DS_Store
+ 1174  # Secrets and credentials
+ 1175  .env
+ 1176  .env.*
+ 1177  *.pem
+ 1178  *.key
+ 1179  *.token
+ 1180  secrets/
+ 1181  credentials/
+ 1182  # ROS bags and generated recordings
+ 1183  *.bag
+ 1184  *.db3
+ 1185  *.mcap
+ 1186  *.mp4
+ 1187  *.avi
+ 1188  # Large AI models
+ 1189  *.pt
+ 1190  *.pth
+ 1191  *.onnx
+ 1192  *.engine
+ 1193  # Temporary files
+ 1194  *.tmp
+ 1195  *.temp
+ 1196  *.log
+ 1197  EOF
+ 1198  find . -type f -size +90M   -not -path "./build/*"   -not -path "./install/*"   -not -path "./log/*"   -not -path "./.git/*"   -print
+ 1199  echo "# Pusantara" >> README.md
+ 1200  git init
+ 1201  git add .
+ 1202  git commit -m "first commit"
+ 1203  git branch -M main
+ 1204  git remote add origin https://github.com/anaqikair/Pusantara.git
+ 1205  git push -u origin main
+ 1206  git init
+ 1207  git add .
+ 1208  git remote add origin https://github.com/anaqikair/Pusantara.git
+ 1209  git commit -m "first commit"
+ 1210  cd ~/vectra_ws
+ 1211  cat > .gitignore <<'EOF'
+ 1212  # ROS 2 generated folders
+ 1213  build/
+ 1214  install/
+ 1215  log/
+ 1216  # Python cache
+ 1217  __pycache__/
+ 1218  *.pyc
+ 1219  *.pyo
+ 1220  .pytest_cache/
+ 1221  # Editors and temporary files
+ 1222  .vscode/
+ 1223  .idea/
+ 1224  *~
+ 1225  *.tmp
+ 1226  *.log
+ 1227  # Secrets
+ 1228  .env
+ 1229  .env.*
+ 1230  *.key
+ 1231  *.pem
+ 1232  credentials/
+ 1233  secrets/
+ 1234  # Large generated files and models
+ 1235  *.bag
+ 1236  *.db3
+ 1237  *.mcap
+ 1238  *.pt
+ 1239  *.pth
+ 1240  *.onnx
+ 1241  *.engine
+ 1242  *.mp4
+ 1243  *.avi
+ 1244  EOF
+ 1245  echo "# PUSANTARA" > README.md
+ 1246  git init
+ 1247  git add .
+ 1248  git status
+ 1249  git commit -m "Initial backup of PUSANTARA workspace"
+ 1250  git branch -M main
+ 1251  git remote add origin https://github.com/anaqikair/Pusantara.git
+ 1252  git push -u origin main
+ 1253  echo "# PUSANTARA" > README.md
+ 1254  git init
+ 1255  git add .
+ 1256  git status
+ 1257  git commit -m "Initial backup of PUSANTARA workspace"
+ 1258  git branch -M main
+ 1259  git remote add origin https://github.com/anaqikair/Pusantara.git
+ 1260  git push -u origin main
+ 1261  echo "# PUSANTARA" > README.md
+ 1262  git init
+ 1263  git add .
+ 1264  git status
+ 1265  git commit -m "Initial backup of PUSANTARA workspace"
+ 1266  git branch -M main
+ 1267  git remote add origin https://github.com/anaqikair/Pusantara.git
+ 1268  git push -u origin main
+ 1269  echo "# PUSANTARA" > README.md
+ 1270  git init
+ 1271  git add .
+ 1272  git status
+ 1273  git commit -m "Initial backup of PUSANTARA workspace"
+ 1274  git branch -M main
+ 1275  git remote add origin https://github.com/anaqikair/Pusantara.git
+ 1276  git push -u origin main
+ 1277  echo "# PUSANTARA" > README.md
+ 1278  git init
+ 1279  git add .
+ 1280  git status
+ 1281  git commit -m "Initial backup of PUSANTARA workspace"
+ 1282  git branch -M main
+ 1283  git remote add origin https://github.com/anaqikair/Pusantara.git
+ 1284  git push -u origin main
+ 1285  git commit -m "Initial backup of PUSANTARA workspace"
+ 1286  git remote add origin https://github.com/anaqikair/Pusantara.git
+ 1287  echo "# Pusantara" >> README.md
+ 1288  git init
+ 1289  git add README.md
+ 1290  git commit -m "first commit"
+ 1291  git branch -M main
+ 1292  git remote add origin https://github.com/anaqikair/Pusantara.git
+ 1293  git push -u origin main
+ 1294  ssh-keygen -t ed25519 -C "anaqikair@gmail.com"
+ 1295  eval "$(ssh-agent -s)"
+ 1296  ssh-add ~/.ssh/id_ed25519
+ 1297  cat ~/.ssh/id_ed25519.pub
+ 1298  ssh -T git@github.com
+ 1299  cd ~/vectra_ws
+ 1300  git remote set-url origin git@github.com:anaqikair/Pusantara.git
+ 1301  git remote -v
+ 1302  cd ~/vectra_ws
+ 1303  git remote set-url origin git@github.com:anaqikair/Pusantara.git
+ 1304  git remote -v
+ 1305  cd ~/vectra_ws
+ 1306  cat > .gitignore <<'EOF'
+ 1307  # ROS 2 generated folders
+ 1308  build/
+ 1309  install/
+ 1310  log/
+ 1311  # Python cache
+ 1312  __pycache__/
+ 1313  *.pyc
+ 1314  *.pyo
+ 1315  .pytest_cache/
+ 1316  # Editor and temporary files
+ 1317  .vscode/
+ 1318  .idea/
+ 1319  *~
+ 1320  *.tmp
+ 1321  # Credentials and secrets
+ 1322  .env
+ 1323  .env.*
+ 1324  *.key
+ 1325  *.pem
+ 1326  credentials/
+ 1327  secrets/
+ 1328  # Large generated files and models
+ 1329  *.bag
+ 1330  *.db3
+ 1331  *.mcap
+ 1332  *.pt
+ 1333  *.pth
+ 1334  *.onnx
+ 1335  *.engine
+ 1336  *.mp4
+ 1337  *.avi
+ 1338  EOF
+ 1339  git add .
+ 1340  git status
+ 1341  git commit -m "Backup complete PUSANTARA ROS 2 workspace"
+ 1342  git push -u origin main
+ 1343  cd ..
+ 1344  cd Downloads/
+ 1345  cd Skyfall_Inferno_Python_Game/
+ 1346  ls
+ 1347  cd Skyfall_Inferno/
+ 1348  ls
+ 1349  python3 main.py 
+ 1350  source /opt/ros/jazzy/setup.bash
+ 1351  source /opt/ros/jetson/setup.bash
+ 1352  ros2 doctor
+ 1353  ros2 --version
+ 1354  echo $ROS_DISTRO
+ 1355  apt list --installed 2>/dev/null | grep behaviortree\
+ 1356  ls
+ 1357  mkdir -p ~/bt_ws/src
+ 1358  cd ~/bt_ws
+ 1359  source /opt/ros/humble/setup.bash
+ 1360  colcon build
+ 1361  ros2 pkg create --build-type ament_cmake bt_test --dependencies rclcpp behaviortree_cpp_v3
+ 1362  colcon build --packages-select bt_test
+ 1363  source install/setup.bash
+ 1364  cd src
+ 1365  ros2 pkg create --build-type ament_cmake bt_test --dependencies rclcpp behaviortree_cpp_v3
+ 1366  ls
+ 1367  ros2 pkg prefix behaviortree_cpp_v3
+ 1368  ros2 pkg prefix bt_test
+ 1369  cd ~/bt_ws
+ 1370  colcon build
+ 1371  ls
+ 1372  tree
+ 1373  cd ~/bt_ws
+ 1374  rm -rf bt_test
+ 1375  rm -rf build install log
+ 1376  source /opt/ros/humble/setup.bash
+ 1377  cd ~/bt_ws
+ 1378  colcon build
+ 1379  ros2 pkg prefix bt_test
+ 1380  cd ~/bt_ws/src/bt_test/src
+ 1381  ls
+ 1382  nano main.cpp
+ 1383  cd ~/bt_ws/src/bt_test
+ 1384  nano CMakeLists.txt
+ 1385  cd ~/bt_ws
+ 1386  colcon build --packages-select bt_test
+ 1387  ros2 run bt_test bt_test_node
+ 1388  lecd ~/bt_ws/src
+ 1389  ros2 pkg create --build-type ament_python bt_terminal --dependencies rclpy std_msgs
+ 1390  cd ~/bt_ws/src
+ 1391  ros2 pkg create --build-type ament_python bt_terminal --dependencies rclpy std_msgs
+ 1392  lsls
+ 1393  ls
+ 1394  cd ~/bt_ws/src/bt_terminal
+ 1395  mkdir -p bt_terminal
+ 1396  touch bt_terminal/__init__.py
+ 1397  tree
+ 1398  nano bt_terminal/button_node.py
+ 1399  nano bt_terminal/display_node.py
+ 1400  nano setup.py
+ 1401  cd ~/bt_ws
+ 1402  colcon build --packages-select bt_terminal
+ 1403  cd ~/bt_ws
+ 1404  rm -rf bt_terminal
+ 1405  rm -rf build install log
+ 1406  source /opt/ros/humble/setup.bash
+ 1407  cd ~/bt_ws
+ 1408  colcon build
+ 1409  source ~/bt_ws/install/setup.bash
+ 1410  source /opt/ros/humble/setup.bash
+ 1411  source ~/bt_ws/install/setup.bash
+ 1412  ros2 run bt_terminal display_node
+ 1413  ros2 topic list
+ 1414  rqt
+ 1415  cd ~/bt_ws/src/bt_test/src
+ 1416  nano bt_controller.cpp
+ 1417  cd ~/bt_ws/src/bt_test
+ 1418  nano CMakeLists.txt
+ 1419  cd ~/bt_ws
+ 1420  colcon build --packages-select bt_test
+ 1421  ros2 run bt_test bt_controller
+ 1422  source ~/bt_ws/install/setup.bash
+ 1423  ros2 run bt_test bt_controller
+ 1424  cd ..
+ 1425  [200~cd ~/your_ws/src~
+ 1426  cd ~/your_ws/src
+ 1427  cd test_ws
+ 1428  cd src/
+ 1429  ros2 pkg create --build-type ament_cmake robotic_arm
+ 1430  cd robotic_arm
+ 1431  mkdir urdf
+ 1432  mkdir launch
+ 1433  mkdir meshes
+ 1434  cd .
+ 1435  cd 
+ 1436  cd test_ws/
+ 1437  cd src/robotic_arm/
+ 1438  nano urdf/arm.urdf
+ 1439  nano ~/bt_ws/src/robotic_arm/urdf/arm.urdf
+ 1440  mkdir -p ~/test_ws/src/robotic_arm/urdf
+ 1441  nano ~/test_ws/src/robotic_arm/urdf/arm.urdf
+ 1442  check_urdf ~/bt_ws/src/robotic_arm/urdf/arm.urdf
+ 1443  nano urdf/arm.urdf
+ 1444  cat urdf/arm.urdf
+ 1445  check_urdf urdf/arm.urdf
+ 1446  [200~pip install -e ".[feetech]"~
+ 1447  pip install -e ".[feetech]"
+ 1448  conda create -y -n lerobot python=3.12
+ 1449  cd vectra_ws/
+ 1450  tree
+ 1451  cd src/
+ 1452  ls
+ 1453  cd ..
+ 1454  ros2 launch pusantara_bringup robot.launch.py
+ 1455  ros2 node list
+ 1456  ros2 run camera_node webcam_pub
+ 1457  rv iz2
+ 1458  rviz2
+ 1459  ros2 launch pusantara_bringup robot.launch.py
+ 1460  ros2 run motion_manager motion_manager
+ 1461  ros2 launch pusantara_bringup robot.launch.py
+ 1462  ros2 run serial_bridge command_sende
+ 1463  ros2 run serial_bridge command_sender
+ 1464  ros2 topic ls
+ 1465  ros2 topic list
+ 1466  ros2 node list
+ 1467  rqt
+ 1468  ros2 topic list
+ 1469  ros2 node list
+ 1470  ros2 node list\
+ 1471  ros2 node list
+ 1472  ros2
+ 1473  cd vectra_ws/
+ 1474  ls
+ 1475  cd src
+ 1476  ls
+ 1477  tree >treesrc.txt
+ 1478  ls
+ 1479  cd ..
+ 1480  colcon build
+ 1481  source /home/orin_nano/vectra_ws/install/setup.bash
+ 1482  ros2 launch pusantara_bringup full.launch.py
+ 1483  colcon build
+ 1484  pid
+ 1485  ps aux | grep -E 'ros2|my_node'
+ 1486  ps aux | grep python
+ 1487  # 1. List the nodes
+ 1488  ros2 node list
+ 1489  # 2. Find ROS-related processes
+ 1490  ps aux | grep -E 'ros2|_node|python'
+ 1491  # 3. Stop the processes you recognize
+ 1492  kill <PID>
+ 1493  # 4. Verify
+ 1494  ros2 node list
+ 1495  kill 9933 10378
+ 1496  ros2 node list
+ 1497  rqt
+ 1498  ros2 run serial_bridge command_sender
+ 1499  ros2 launch pusantara_navigation navigation.launch.py use_sim_time:=False autostart:=True map:=$HOME/vectra_ws/maps/pusantara_map1.yaml params_file:=$HOME/vectra_ws/src/pusantara_navigation/config/nav2_params.yaml
+ 1500  ros2 run cmd_vel_bridge cmd_vel_to_robot_command
+ 1501  ros2 topic list
+ 1502  ros2 topic echo /safe_robot_command 
+ 1503  ros2 echo topic  /safe_robot_command 
+ 1504  ros2 topic echo /safe_robot_command 
+ 1505  ros2 node info /serial_bridge
+ 1506  ros2 topic info /safe_robot_command --verbose
+ 1507  ros2 topic info /robot_command --verbose
+ 1508  ros2 pkg prefix serial_bridge
+ 1509  grep -n -A6 -B2 'safe_robot_command' ~/vectra_ws/src/serial_bridge/serial_bridge/bridge_node.py
+ 1510  grep -n -A6 -B2 'safe_robot_command' ~/vectra_ws/src/serial_bridge/serial_bridge/bridge_node.py
+ 1511  pgrep -af 'serial_bridge.*bridge_node'
+ 1512  pkill -f '/install/serial_bridge/lib/serial_bridge/bridge_node'
+ 1513  cd ~/vectra_ws
+ 1514  source /opt/ros/$ROS_DISTRO/setup.bash
+ 1515  colcon build --packages-select serial_bridge --symlink-install
+ 1516  source install/setup.bash
+ 1517  ros2 run serial_bridge bridge_node
+ 1518  source /opt/ros/$ROS_DISTRO/setup.bash
+ 1519  source ~/vectra_ws/install/setup.bash
+ 1520  ros2 node info /serial_bridge
+ 1521  ros2 node list
+ 1522  conda create -y -n lerobot python=3.12
+ 1523  cd vectra_
+ 1524  cd vectra
+ 1525  cd vectra_ws
+ 1526  cd src
+ 1527  [200~wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+ 1528  s\bash Miniforge3-$(uname)-$(uname -m).sh~
+ 1529  cd ..
+ 1530  touch so101_test.py
+ 1531  mkdir so101
+ 1532  cd so101/
+ 1533  wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+ 1534  bash Miniforge3-$(uname)-$(uname -m).sh
+ 1535  conda create -y -n lerobot python=3.12
+ 1536  ls
+ 1537  conda create -y -n lerobot python=3.12
+ 1538  ls
+ 1539  c
+ 1540  condo
+ 1541  conda--version
+ 1542  ls ~/miniforge3/bin/conda
+ 1543  ~/mioniforge3/bin/conda init bash
+ 1544  ~/miniforge3/bin/conda init bash
+ 1545  cd so101/
+ 1546  conda --version
+ 1547  conda create -y -n lerobot python=3.12
+ 1548  conda activate lerobot
+ 1549  conda install evdev -c conda-forge
+ 1550  conda activate
+ 1551  conda install ffmpeg -c conda-forge
+ 1552  git clone https://github.com/huggingface/lerobot.git
+ 1553  cd lerobot
+ 1554  [200~pip install -e ".[core_scripts]"  # For robot workflows (recording, replaying, calibrate)
+ 1555  pip install -e ".[training]"      # For training policies
+ 1556  pip install -e ".[all]"           # Everything (all policies, envs, hardware, dev tools)~
+ 1557  pip install lerobot
+ 1558  pip install 'lerobot[core_scripts]'          # Record, replay, calibrate
+ 1559  pip install 'lerobot[training]'              # Train policies
+ 1560  pip install 'lerobot[core_scripts,training]' # Record + train
+ 1561  pip install 'lerobot[all]'                   # Everything
+ 1562  pip install 'lerobot[core_scripts]'          # Record, replay, calibrate
+ 1563  pip install 'lerobot[training]'              # Train policies
+ 1564  pip install 'lerobot[core_scripts,training]' # Record + train
+ 1565  pip install 'lerobot[all]'                   # Everything
+ 1566  conda adctivate lerobot
+ 1567  conda activate lerobot
+ 1568  python --version
+ 1569  python m pip show numba
+ 1570  python -m pip show numba
+ 1571  uname -m
+ 1572  python -m pip install --upgrade pip setuptool wheel
+ 1573  which python
+ 1574  python -m pip --version
+ 1575  cd so101/
+ 1576  conda activate lerobot
+ 1577  pip install 'lerobot[core_scripts]'          # Record, replay, calibrate
+ 1578  pip install 'lerobot[training]'              # Train policies
+ 1579  pip install 'lerobot[core_scripts,training]' # Record + train
+ 1580  pip install 'lerobot[all]' 
+ 1581  pip install 'lerobot[core_scripts]'          # Record, replay, calibrate
+ 1582  pip install 'lerobot[training]'              # Train policies
+ 1583  pip install 'lerobot[core_scripts,training]' # Record + train
+ 1584  pip install 'lerobot[all]'                   # Everything
+ 1585  pip install 'lerobot[core_scripts]'          # Record, replay, calibrate
+ 1586  pip install 'lerobot[training]'              # Train policies
+ 1587  pip install 'lerobot[core_scripts,training]' # Record + train
+ 1588  pip install 'lerobot[all]'                   # Everything
+ 1589  python -m pip confiq list
+ 1590  python -m pip config list
+ 1591  python -m pip index versions setuptools
+ 1592  pip install 'lerobot[pi]'             # Pi0/Pi0.5/Pi0-FAST policy deps
+ 1593  pip install 'lerobot[smolvla]'        # SmolVLA policy deps
+ 1594  pip install 'lerobot[diffusion]'      # Diffusion policy deps (diffusers)
+ 1595  pip install 'lerobot[aloha,pusht]'    # Simulation environments
+ 1596  pip install 'lerobot[feetech]'        # Feetech motor support
+ 1597  pip install --index-url https://download.pytorch.org/whl/cu128 torch torchvision
+ 1598  pip install -e ".[all]"          # source
+ 1599  # — or —
+ 1600  pip install lerobot              # from PyPI
+ 1601  uv pip install --torch-backend cu128 lerobot
+ 1602  pip install -e ".[aloha]" # or "[pusht]" for example\
+ 1603  pip install -e ".[aloha]" # or "[pusht]" for example
+ 1604  curl -LsSf https://astral.sh/uv/install.sh | sh
+ 1605  uv tool install git+https://github.com/huggingface/leLab.git && lelab
+ 1606  \
+ 1607  conda deactivate
+ 1608  mkdir -p ros2_ws/src
+ 1609  cd ros2_ws/src
+ 1610  git clone https://github.com/adityakamath/so_arm_ros2.git
+ 1611  cd ..
+ 1612  colcon build --symlink-install
+ 1613  source install/setup.bash
+ 1614  ros2 launch so_arm_bringup bringup.launch.py ros2_control_hardware_type:=mujoco
+ 1615  cd ..
+ 1616  cd ~/so101/ros2_ws
+ 1617  source install/setup.bash
+ 1618  ros2 pkg prefix so_arm_bringup
+ 1619  ros2 launch so_arm_bringup so_arm.launch.py
+ 1620  python -m lerobot.scripts.control_robot   --robot.type=so101_follower   --robot.camera_fps=30
+ 1621  cd ~/so101/ros2_ws/src
+ 1622  git clone https://github.com/TheRobotStudio/SO-ARM100.git
+ 1623  cd ~/so101/ros2_ws
+ 1624  colcon build --symlink-install
+ 1625  source install/setup.bash
+ 1626  ros2 launch so_arm_bringup display.launch.py
+ 1627  ls ~/so101/ros2_ws/install/so_arm_bringup/share/so_arm_bringup/launch/
+ 1628  ros2 launch so_arm_bringup so_arm.launch.py
+ 1629  cd ~/so101/ros2_ws
+ 1630  rm -rf build/ install/ log/
+ 1631  colcon build --symlink-install
+ 1632  source install/setup.bash
+ 1633  ros2 launch so_arm_bringup so_arm.launch.py
+ 1634  ros2 run rviz2 rviz2
+ 1635  find ~/so101/ros2_ws/src -name "*.urdf" -o -name "*.xacro"
+ 1636  sudo apt install ros-$ROS_DISTRO-joint-state-publisher-gui  # (Install if you haven't already)
+ 1637  ros2 run joint_state_publisher_gui joint_state_publisher_gui
+ 1638  sudo apt install ros-$ROS_DISTRO-joint-state-publisher-gui  # (Install if you haven't already)
+ 1639  ros2 run joint_state_publisher_gui joint_state_publisher_gui
+ 1640  sudo apt install ros-$ROS_DISTRO-joint-state-publisher-gui  # (Install if you haven't already)
+ 1641  ros2 run joint_state_publisher_gui joint_state_publisher_gui
+ 1642  sudo apt install ros-$ROS_DISTRO-joint-state-publisher-gui  # (Install if you haven't already)
+ 1643  ros2 run joint_state_publisher_gui joint_state_publisher_gui
+ 1644  ros2 run rviz2 rviz2
+ 1645  ros2 topic list
+ 1646  find src -name "*.urdf" -o -name "*.xacro"
+ 1647  ros2 run robot_state_publisher robot_state_publisher --ros-args -p robot_description:="$(cat PATH/TO/YOUR.urdf)"
+ 1648  ros2 run robot_state_publisher robot_state_publisher --ros-args -p robot_description:="$(cat src/SO-ARM100/Simulation/SO101/so101_new_calib.urdf)"
+ 1649  ros2 run robot_state_publisher robot_state_publisher src/SO-ARM100/Simulation/SO101/so101_new_calib.urdf
+ 1650  cd ~/so101/ros2_ws
+ 1651  source install/setup.bash
+ 1652  ros2 run joint_state_publisher_gui joint_state_publisher_gui
+ 1653  cd ~/so101/ros2_ws
+ 1654  source install/setup.bash
+ 1655  ros2 run joint_state_publisher_gui joint_state_publisher_gui
+ 1656  condo deactivate
+ 1657  conda deactivate
+ 1658  check_urdf ~/lerobot_ws/src/my_5dof_arm_description/urdf/arm_5dof.urdf
+ 1659  ros2 launch my_5dof_arm_description display.launch.py
+ 1660  cd ~/lerobot_ws
+ 1661  ros2 topic list
+ 1662  ros2 topic echo /robot_description --once
+ 1663  cd ~/lerobot_ws
+ 1664  source install/setup.bash
+ 1665  ros2 run robot_state_publisher robot_state_publisher --ros-args -p robot_description:=/home/orin_nano/lerobot_ws/src/my_5dof_arm_description/urdf/arm_5dof.urdf
+ 1666  ros2 topic list
+ 1667  cd ~/lerobot_ws
+ 1668  source install/setup.bash
+ 1669  python3 cultural_task_controller.py
+ 1670  cat << 'EOF' > ~/lerobot_ws/cultural_task_controller.py
+ 1671  import rclpy
+ 1672  from rclpy.node import Node
+ 1673  from sensor_msgs.msg import JointState
+ 1674  import time
+ 1675  class CulturalArmPublisher(Node):
+ 1676      def __init__(self):
+ 1677          super().__init__('cultural_arm_publisher')
+ 1678          self.publisher_ = self.create_publisher(JointState, 'joint_states', 10)
+ 1679          self.get_logger().info("IRO Cultural Heritage Controller Node Started!")
+ 1680      def send_waypoints(self):
+ 1681          joint_names = ['joint_1', 'joint_2', 'joint_3', 'joint_4', 'gripper_joint']
+ 1682          
+ 1683          cultural_waypoints = [
+ 1684              [0.0, 0.0, 0.0, 0.0, 0.0],       # Home Position
+ 1685              [1.0, 0.3, -0.5, 0.2, 0.0],     # Position 1: Approach Artifact
+ 1686              [1.0, 0.5, -0.8, 0.4, 0.02],    # Position 2: Grasp Artifact
+ 1687              [0.0, 0.2, -0.2, 0.0, 0.02]     # Position 3: Display Cultural Item
+ 1688          ]
+ 1689          for i, positions in enumerate(cultural_waypoints):
+ 1690              self.get_logger().info(f"Executing cultural heritage step {i+1}...")
+ 1691              
+ 1692              msg = JointState()
+ 1693              msg.header.stamp = self.get_clock().now().to_msg()
+ 1694              msg.name = joint_names
+ 1695              msg.position = positions
+ 1696              
+ 1697              for _ in range(10):
+ 1698                  self.publisher_.publish(msg)
+ 1699                  time.sleep(0.1)
+ 1700              
+ 1701              time.sleep(1.5)
+ 1702          self.get_logger().info("Cultural heritage sequence completed successfully!")
+ 1703  def main(args=None):
+ 1704      rclpy.init(args=args)
+ 1705      node = CulturalArmPublisher()
+ 1706      node.send_waypoints()
+ 1707      node.destroy_node()
+ 1708      rclpy.shutdown()
+ 1709  if __name__ == '__main__':
+ 1710      main()
+ 1711  EOF
+ 1712  cd ~/lerobot_ws
+ 1713  source install/setup.bash
+ 1714  python3 cultural_task_controller.py
+ 1715  Traceback (most recent call last):
+ 1716  ModuleNotFoundError: No module named 'rclpy._rclpy_pybind11'
+ 1717  The C extension '/opt/ros/humble/lib/python3.10/site-packages/_rclpy_pybind11.cpython-314-aarch64-linux-gnu.so' isn't present on
+ 1718  /usr/bin/python3 cultural_task_controller.py
+ 1719  cd ~/lerobot_ws
+ 1720  source /opt/ros/humble/setup.bash
+ 1721  source install/setup.bash
+ 1722  python3 cultural_task_controller.py
+ 1723  cd ~/lerobot_ws
+ 1724  export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
+ 1725  source /opt/ros/humble/setup.bash
+ 1726  source install/setup.bash
+ 1727  python3 cultural_task_controller.py
+ 1728  cd ~/lerobot_ws
+ 1729  export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
+ 1730  source /opt/ros/humble/setup.bash
+ 1731  source install/setup.bash
+ 1732  python3 cultural_task_controller.py
+ 1733  cd ~/lerobot_ws
+ 1734  export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
+ 1735  source /opt/ros/humble/setup.bash
+ 1736  source install/setup.bash
+ 1737  python3 cultural_task_controller.py
+ 1738  cd vectra_ws/s
+ 1739  cd vectra_ws
+ 1740  ros2 run bno055_driver imu_node
+ 1741  conda deactivate
+ 1742  ros2 run bno055_driver imu_node
+ 1743  cd ..
+ 1744  #!/usr/bin/env python3
+ 1745  """
+ 1746  imu_node.py
+ 1747  Improved ROS2 BNO055 driver for Jetson Orin Nano using smbus2.
+ 1748  Improvements over the original:
+ 1749    - Calibration profile save/load (offsets persisted to JSON)
+ 1750    - Calibration status published and logged
+ 1751    - Auto-waits for full calibration on first run
+ 1752    - Gyro drift reduction via deadband zero-ing
+ 1753    - Orientation drift reduction via complementary filter on accel
+ 1754    - Covariance matrices populated based on calibration quality
+ 1755    - Graceful I2C error recovery (retries instead of crashing)
+ 1756    - /imu/cal_status diagnostic topic
+ 1757  Publishes:
+ 1758    /imu/data          sensor_msgs/Imu
+ 1759    /imu/mag           sensor_msgs/MagneticField
+ 1760    /imu/temp          sensor_msgs/Temperature
+ 1761    /imu/cal_status    std_msgs/String   (JSON: sys/gyro/accel/mag 0-3)
+ 1762  Parameters:
+ 1763    bus          int     I2C bus number          (default: 1)
+ 1764    address      int     I2C address             (default: 0x28)
+ 1765    frame_id     str     TF frame               (default: "imu_link")
+ 1766    rate         float   Publish rate Hz         (default: 100.0)
+ 1767    cal_file     str     Calibration JSON path   (default: "/tmp/bno055_cal.json")
+ 1768    wait_cal     bool    Block until fully cal'd (default: false)
+ 1769    gyro_deadband float  rad/s deadband          (default: 0.002)
+ 1770    alpha        float   Complementary filter α  (default: 0.98)
+ 1771  Dependencies:
+ 1772    sudo apt install python3-smbus
+ 1773    pip3 install smbus2
+ 1774  """
+ 1775  import json
+ 1776  import math
+ 1777  import time
+ 1778  from pathlib import Path
+ 1779  import rclpy
+ 1780  from rclpy.node import Node
+ 1781  from sensor_msgs.msg import Imu, MagneticField, Temperature
+ 1782  from std_msgs.msg import String
+ 1783  from smbus2 import SMBus
+ 1784  # ---------------------------------------------------------------------------
+ 1785  # BNO055 driver
+ 1786  # ---------------------------------------------------------------------------
+ 1787  class BNO055:
+ 1788  # ---------------------------------------------------------------------------
+ 1789  # Covariance helpers
+ 1790  # ---------------------------------------------------------------------------
+ 1791  # Diagonal covariance matrices sized to calibration quality.
+ 1792  # BNO055 datasheet typical noise figures, scaled up when poorly calibrated.
+ 1793  _COV_ORIENT = {3: 1e-6, 2: 1e-5, 1: 1e-4, 0: 1e-3}
+ 1794  _COV_GYRO   = {3: 1e-7, 2: 1e-6, 1: 1e-5, 0: 1e-4}
+ 1795  _COV_ACCEL  = {3: 1e-5, 2: 1e-4, 1: 1e-3, 0: 1e-2}
+ 1796  _COV_MAG    = {3: 1e-9, 2: 1e-8, 1: 1e-7, 0: 1e-6}
+ 1797  def _diag_cov(value: float) -> list[float]:
+ 1798  def _diag_cov3(value: float) -> list[float]:
+ 1799  # ---------------------------------------------------------------------------
+ 1800  # ROS 2 node
+ 1801  # ---------------------------------------------------------------------------
+ 1802  class IMUNode(Node):
+ 1803  # ---------------------------------------------------------------------------
+ 1804  # Quaternion math utilities
+ 1805  # ---------------------------------------------------------------------------
+ 1806  def _quat_mul(a: list[float], b: list[float]) -> list[float]:
+ 1807  def _quat_dot(a: list[float], b: list[float]) -> float:
+ 1808  def _quat_slerp(q0: list[float], q1: list[float], t: float) -> list[float]:
+ 1809  # ---------------------------------------------------------------------------
+ 1810  # Entry point
+ 1811  # ---------------------------------------------------------------------------
+ 1812  def main() -> None:
+ 1813  if __name__ == "__main__":;     main()
+ 1814  cd vectra_ws
+ 1815  RQT
+ 1816  rqt
+ 1817  ros2 run motion_manager motion_manager 
+ 1818  ros2 run serial_bridge command_sender 
+ 1819  ros2 run serial_bridge bridge_node 
+ 1820  ros2 topic list
+ 1821  ros2 echo topic /imu/data
+ 1822  ros2 topic echo /imu/data
+ 1823  ros2 topic list
+ 1824  ros2 topic echo /scan 
+ 1825  conda deactivate
+ 1826  cd vectra_ws
+ 1827  ros2 run bno055_driver imu_node
+ 1828  sudo i2cdetect -l
+ 1829  sudo i2cdetect -y -r 0
+ 1830  sudo i2cdetect -y -r 1
+ 1831  find ~/vectra_ws/src -name imu_node.py
+ 1832  sudo i2cdetect -y -r 1
+ 1833  grep -RniE 'bno055|i2c_bus|address:|bus:' ~/vectra_ws/src --include='*.py' --include='*.yaml' --include='*.xml'
+ 1834  for bus in 0 1 2 4 5 7 9; do     echo "========== I2C BUS $bus ==========";     sudo i2cdetect -y -r "$bus"; done
+ 1835  y
+ 1836  sed -n '35,65p' ~/vectra_ws/src/bno055_driver/bno055_driver/imu_node.py 
+ 1837  sudo i2cdetect -y -r 7
+ 1838  sudo i2cget -y 7 0x28 0x00
+ 1839  ros2 run bno055_driver imu_node
+ 1840  cd ~/vectra_ws
+ 1841  source /opt/ros/$ROS_DISTRO/setup.bash
+ 1842  source install/setup.bash
+ 1843  ros2 run bno055_driver imu_node --ros-args -p bus:=7 -p address:=40
+ 1844  ros2 node list
+ 1845  conda deacticate
+ 1846  conda deactivate
+ 1847  cd vectra_ws
+ 1848  ros2 run pusantara_bringup robot.launch
+ 1849  ros2 run pusantara_bringup launch robot.launch
+ 1850  ros2 run launch robot.launch
+ 1851  history >historr.txt

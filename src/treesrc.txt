@@ -1,0 +1,2885 @@
+.
+├── apriltag_detector
+│   ├── apriltag_detector
+│   │   ├── apriltag_detector.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── apriltag_detector.cpython-310.pyc
+│   │       └── __init__.cpython-310.pyc
+│   ├── package.xml
+│   ├── resource
+│   │   └── apriltag_detector
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── apriltag_follower
+│   ├── apriltag_follower
+│   │   ├── apriltag_follower.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── apriltag_follower.cpython-310.pyc
+│   │       └── __init__.cpython-310.pyc
+│   ├── package.xml
+│   ├── resource
+│   │   └── apriltag_follower
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── architecture_report.txt
+├── batik_designer
+│   ├── batik_designer
+│   │   ├── batik_designer.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── batik_designer.cpython-310.pyc
+│   │       └── __init__.cpython-310.pyc
+│   ├── launch
+│   ├── package.xml
+│   ├── resource
+│   │   └── batik_designer
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── bno055_driver
+│   ├── bno055_driver
+│   │   ├── imu_node.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── imu_node.cpython-310.pyc
+│   │       └── __init__.cpython-310.pyc
+│   ├── package.xml
+│   ├── resource
+│   │   └── bno055_driver
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── build
+│   ├── apriltag_detector
+│   │   ├── apriltag_detector.egg-info
+│   │   │   ├── dependency_links.txt
+│   │   │   ├── entry_points.txt
+│   │   │   ├── PKG-INFO
+│   │   │   ├── requires.txt
+│   │   │   ├── SOURCES.txt
+│   │   │   ├── top_level.txt
+│   │   │   └── zip-safe
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── apriltag_detector
+│   │   │           ├── apriltag_detector.py
+│   │   │           └── __init__.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   └── prefix_override
+│   │       ├── __pycache__
+│   │       │   └── sitecustomize.cpython-310.pyc
+│   │       └── sitecustomize.py
+│   ├── apriltag_follower
+│   │   ├── apriltag_follower.egg-info
+│   │   │   ├── dependency_links.txt
+│   │   │   ├── entry_points.txt
+│   │   │   ├── PKG-INFO
+│   │   │   ├── requires.txt
+│   │   │   ├── SOURCES.txt
+│   │   │   ├── top_level.txt
+│   │   │   └── zip-safe
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── apriltag_follower
+│   │   │           ├── apriltag_follower.py
+│   │   │           └── __init__.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   └── prefix_override
+│   │       ├── __pycache__
+│   │       │   └── sitecustomize.cpython-310.pyc
+│   │       └── sitecustomize.py
+│   ├── batik_designer
+│   │   ├── batik_designer.egg-info
+│   │   │   ├── dependency_links.txt
+│   │   │   ├── entry_points.txt
+│   │   │   ├── PKG-INFO
+│   │   │   ├── requires.txt
+│   │   │   ├── SOURCES.txt
+│   │   │   ├── top_level.txt
+│   │   │   └── zip-safe
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── batik_designer
+│   │   │           ├── batik_designer.py
+│   │   │           └── __init__.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   └── prefix_override
+│   │       ├── __pycache__
+│   │       │   └── sitecustomize.cpython-310.pyc
+│   │       └── sitecustomize.py
+│   ├── bno055_driver
+│   │   ├── bno055_driver.egg-info
+│   │   │   ├── dependency_links.txt
+│   │   │   ├── entry_points.txt
+│   │   │   ├── PKG-INFO
+│   │   │   ├── requires.txt
+│   │   │   ├── SOURCES.txt
+│   │   │   ├── top_level.txt
+│   │   │   └── zip-safe
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── bno055_driver
+│   │   │           ├── imu_node.py
+│   │   │           └── __init__.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   └── prefix_override
+│   │       ├── __pycache__
+│   │       │   └── sitecustomize.cpython-310.pyc
+│   │       └── sitecustomize.py
+│   ├── camera_node
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── camera_node
+│   │   │           ├── __init__.py
+│   │   │           └── webcam_pub.py
+│   │   ├── camera_node.egg-info
+│   │   │   ├── dependency_links.txt
+│   │   │   ├── entry_points.txt
+│   │   │   ├── PKG-INFO
+│   │   │   ├── requires.txt
+│   │   │   ├── SOURCES.txt
+│   │   │   ├── top_level.txt
+│   │   │   └── zip-safe
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   └── prefix_override
+│   │       ├── __pycache__
+│   │       │   └── sitecustomize.cpython-310.pyc
+│   │       └── sitecustomize.py
+│   ├── cmd_vel_bridge
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── cmd_vel_bridge
+│   │   │           ├── cmd_vel_to_robot_command.py
+│   │   │           └── __init__.py
+│   │   ├── cmd_vel_bridge.egg-info
+│   │   │   ├── dependency_links.txt
+│   │   │   ├── entry_points.txt
+│   │   │   ├── PKG-INFO
+│   │   │   ├── requires.txt
+│   │   │   ├── SOURCES.txt
+│   │   │   ├── top_level.txt
+│   │   │   └── zip-safe
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   └── prefix_override
+│   │       ├── __pycache__
+│   │       │   └── sitecustomize.cpython-310.pyc
+│   │       └── sitecustomize.py
+│   ├── COLCON_IGNORE
+│   ├── food_quiz
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── food_quiz
+│   │   │           ├── foodquiz.py
+│   │   │           └── __init__.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── food_quiz.egg-info
+│   │   │   ├── dependency_links.txt
+│   │   │   ├── entry_points.txt
+│   │   │   ├── PKG-INFO
+│   │   │   ├── requires.txt
+│   │   │   ├── SOURCES.txt
+│   │   │   ├── top_level.txt
+│   │   │   └── zip-safe
+│   │   ├── install.log
+│   │   └── prefix_override
+│   │       ├── __pycache__
+│   │       │   └── sitecustomize.cpython-310.pyc
+│   │       └── sitecustomize.py
+│   ├── heritage_explainer
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── heritage_explainer
+│   │   │           ├── heritage_explainer.py
+│   │   │           └── __init__.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── heritage_explainer.egg-info
+│   │   │   ├── dependency_links.txt
+│   │   │   ├── entry_points.txt
+│   │   │   ├── PKG-INFO
+│   │   │   ├── requires.txt
+│   │   │   ├── SOURCES.txt
+│   │   │   ├── top_level.txt
+│   │   │   └── zip-safe
+│   │   ├── install.log
+│   │   └── prefix_override
+│   │       ├── __pycache__
+│   │       │   └── sitecustomize.cpython-310.pyc
+│   │       └── sitecustomize.py
+│   ├── hls_lfcd_lds_driver
+│   │   ├── ament_cmake_core
+│   │   │   ├── hls_lfcd_lds_driverConfig.cmake
+│   │   │   ├── hls_lfcd_lds_driverConfig-version.cmake
+│   │   │   ├── package.cmake
+│   │   │   └── stamps
+│   │   │       ├── ament_cmake_export_dependencies-extras.cmake.stamp
+│   │   │       ├── ament_cmake_export_include_directories-extras.cmake.stamp
+│   │   │       ├── ament_prefix_path.sh.stamp
+│   │   │       ├── nameConfig.cmake.in.stamp
+│   │   │       ├── nameConfig-version.cmake.in.stamp
+│   │   │       ├── package_xml_2_cmake.py.stamp
+│   │   │       ├── package.xml.stamp
+│   │   │       ├── path.sh.stamp
+│   │   │       └── templates_2_cmake.py.stamp
+│   │   ├── ament_cmake_environment_hooks
+│   │   │   ├── ament_prefix_path.dsv
+│   │   │   ├── local_setup.bash
+│   │   │   ├── local_setup.dsv
+│   │   │   ├── local_setup.sh
+│   │   │   ├── local_setup.zsh
+│   │   │   ├── package.dsv
+│   │   │   └── path.dsv
+│   │   ├── ament_cmake_export_dependencies
+│   │   │   └── ament_cmake_export_dependencies-extras.cmake
+│   │   ├── ament_cmake_export_include_directories
+│   │   │   └── ament_cmake_export_include_directories-extras.cmake
+│   │   ├── ament_cmake_index
+│   │   │   └── share
+│   │   │       └── ament_index
+│   │   │           └── resource_index
+│   │   │               ├── package_run_dependencies
+│   │   │               │   └── hls_lfcd_lds_driver
+│   │   │               ├── packages
+│   │   │               │   └── hls_lfcd_lds_driver
+│   │   │               └── parent_prefix_path
+│   │   │                   └── hls_lfcd_lds_driver
+│   │   ├── ament_cmake_package_templates
+│   │   │   └── templates.cmake
+│   │   ├── ament_cmake_uninstall_target
+│   │   │   └── ament_cmake_uninstall_target.cmake
+│   │   ├── cmake_args.last
+│   │   ├── CMakeCache.txt
+│   │   ├── CMakeFiles
+│   │   │   ├── 3.22.1
+│   │   │   │   ├── CMakeCCompiler.cmake
+│   │   │   │   ├── CMakeCXXCompiler.cmake
+│   │   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   │   │   ├── CMakeSystem.cmake
+│   │   │   │   ├── CompilerIdC
+│   │   │   │   │   ├── a.out
+│   │   │   │   │   ├── CMakeCCompilerId.c
+│   │   │   │   │   └── tmp
+│   │   │   │   └── CompilerIdCXX
+│   │   │   │       ├── a.out
+│   │   │   │       ├── CMakeCXXCompilerId.cpp
+│   │   │   │       └── tmp
+│   │   │   ├── cmake.check_cache
+│   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   ├── CMakeOutput.log
+│   │   │   ├── CMakeRuleHashes.txt
+│   │   │   ├── CMakeTmp
+│   │   │   ├── hlds_laser_publisher.dir
+│   │   │   │   ├── build.make
+│   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   ├── compiler_depend.internal
+│   │   │   │   ├── compiler_depend.make
+│   │   │   │   ├── compiler_depend.ts
+│   │   │   │   ├── DependInfo.cmake
+│   │   │   │   ├── depend.make
+│   │   │   │   ├── flags.make
+│   │   │   │   ├── link.txt
+│   │   │   │   ├── progress.make
+│   │   │   │   └── src
+│   │   │   │       ├── hlds_laser_publisher.cpp.o
+│   │   │   │       └── hlds_laser_publisher.cpp.o.d
+│   │   │   ├── hls_lfcd_lds_driver_uninstall.dir
+│   │   │   │   ├── build.make
+│   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   ├── compiler_depend.make
+│   │   │   │   ├── compiler_depend.ts
+│   │   │   │   ├── DependInfo.cmake
+│   │   │   │   └── progress.make
+│   │   │   ├── Makefile2
+│   │   │   ├── Makefile.cmake
+│   │   │   ├── progress.marks
+│   │   │   ├── TargetDirectories.txt
+│   │   │   └── uninstall.dir
+│   │   │       ├── build.make
+│   │   │       ├── cmake_clean.cmake
+│   │   │       ├── compiler_depend.make
+│   │   │       ├── compiler_depend.ts
+│   │   │       ├── DependInfo.cmake
+│   │   │       └── progress.make
+│   │   ├── cmake_install.cmake
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_build.sh
+│   │   ├── colcon_command_prefix_build.sh.env
+│   │   ├── CTestConfiguration.ini
+│   │   ├── CTestCustom.cmake
+│   │   ├── CTestTestfile.cmake
+│   │   ├── hlds_laser_publisher
+│   │   ├── install_manifest.txt
+│   │   └── Makefile
+│   ├── keris_demo
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── keris_demo
+│   │   │           ├── __init__.py
+│   │   │           └── keris_demo.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── keris_demo.egg-info
+│   │   │   ├── dependency_links.txt
+│   │   │   ├── entry_points.txt
+│   │   │   ├── PKG-INFO
+│   │   │   ├── requires.txt
+│   │   │   ├── SOURCES.txt
+│   │   │   ├── top_level.txt
+│   │   │   └── zip-safe
+│   │   └── prefix_override
+│   │       ├── __pycache__
+│   │       │   └── sitecustomize.cpython-310.pyc
+│   │       └── sitecustomize.py
+│   ├── malaysia_history_quiz
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── malaysia_history_quiz
+│   │   │           ├── history_quiz.py
+│   │   │           └── __init__.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── malaysia_history_quiz.egg-info
+│   │   │   ├── dependency_links.txt
+│   │   │   ├── entry_points.txt
+│   │   │   ├── PKG-INFO
+│   │   │   ├── requires.txt
+│   │   │   ├── SOURCES.txt
+│   │   │   ├── top_level.txt
+│   │   │   └── zip-safe
+│   │   └── prefix_override
+│   │       ├── __pycache__
+│   │       │   └── sitecustomize.cpython-310.pyc
+│   │       └── sitecustomize.py
+│   ├── motion_manager
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── motion_manager
+│   │   │           ├── __init__.py
+│   │   │           └── motion_manager.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── motion_manager.egg-info
+│   │   │   ├── dependency_links.txt
+│   │   │   ├── entry_points.txt
+│   │   │   ├── PKG-INFO
+│   │   │   ├── requires.txt
+│   │   │   ├── SOURCES.txt
+│   │   │   ├── top_level.txt
+│   │   │   └── zip-safe
+│   │   └── prefix_override
+│   │       ├── __pycache__
+│   │       │   └── sitecustomize.cpython-310.pyc
+│   │       └── sitecustomize.py
+│   ├── person_follower
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── person_follower
+│   │   │           ├── __init__.py
+│   │   │           └── person_follower.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── person_follower.egg-info
+│   │   │   ├── dependency_links.txt
+│   │   │   ├── entry_points.txt
+│   │   │   ├── PKG-INFO
+│   │   │   ├── requires.txt
+│   │   │   ├── SOURCES.txt
+│   │   │   ├── top_level.txt
+│   │   │   └── zip-safe
+│   │   └── prefix_override
+│   │       ├── __pycache__
+│   │       │   └── sitecustomize.cpython-310.pyc
+│   │       └── sitecustomize.py
+│   ├── pusantara_admin
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── pusantara_admin
+│   │   │           ├── admin_console.py
+│   │   │           ├── camera_widget.py
+│   │   │           ├── __init__.py
+│   │   │           ├── lidar_widget.py
+│   │   │           ├── node_manager.py
+│   │   │           ├── patch_console.py
+│   │   │           └── system_monitor.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── prefix_override
+│   │   │   ├── __pycache__
+│   │   │   │   └── sitecustomize.cpython-310.pyc
+│   │   │   └── sitecustomize.py
+│   │   └── pusantara_admin.egg-info
+│   │       ├── dependency_links.txt
+│   │       ├── entry_points.txt
+│   │       ├── PKG-INFO
+│   │       ├── requires.txt
+│   │       ├── SOURCES.txt
+│   │       ├── top_level.txt
+│   │       └── zip-safe
+│   ├── pusantara_bringup
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── pusantara_bringup
+│   │   │           └── __init__.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── prefix_override
+│   │   │   ├── __pycache__
+│   │   │   │   └── sitecustomize.cpython-310.pyc
+│   │   │   └── sitecustomize.py
+│   │   └── pusantara_bringup.egg-info
+│   │       ├── dependency_links.txt
+│   │       ├── entry_points.txt
+│   │       ├── PKG-INFO
+│   │       ├── requires.txt
+│   │       ├── SOURCES.txt
+│   │       ├── top_level.txt
+│   │       └── zip-safe
+│   ├── pusantara_description
+│   │   ├── ament_cmake_core
+│   │   │   ├── package.cmake
+│   │   │   ├── pusantara_descriptionConfig.cmake
+│   │   │   ├── pusantara_descriptionConfig-version.cmake
+│   │   │   └── stamps
+│   │   │       ├── ament_prefix_path.sh.stamp
+│   │   │       ├── nameConfig.cmake.in.stamp
+│   │   │       ├── nameConfig-version.cmake.in.stamp
+│   │   │       ├── package_xml_2_cmake.py.stamp
+│   │   │       ├── package.xml.stamp
+│   │   │       ├── path.sh.stamp
+│   │   │       └── templates_2_cmake.py.stamp
+│   │   ├── ament_cmake_environment_hooks
+│   │   │   ├── ament_prefix_path.dsv
+│   │   │   ├── local_setup.bash
+│   │   │   ├── local_setup.dsv
+│   │   │   ├── local_setup.sh
+│   │   │   ├── local_setup.zsh
+│   │   │   ├── package.dsv
+│   │   │   └── path.dsv
+│   │   ├── ament_cmake_index
+│   │   │   └── share
+│   │   │       └── ament_index
+│   │   │           └── resource_index
+│   │   │               ├── package_run_dependencies
+│   │   │               │   └── pusantara_description
+│   │   │               ├── packages
+│   │   │               │   └── pusantara_description
+│   │   │               └── parent_prefix_path
+│   │   │                   └── pusantara_description
+│   │   ├── ament_cmake_package_templates
+│   │   │   └── templates.cmake
+│   │   ├── ament_cmake_uninstall_target
+│   │   │   └── ament_cmake_uninstall_target.cmake
+│   │   ├── cmake_args.last
+│   │   ├── CMakeCache.txt
+│   │   ├── CMakeFiles
+│   │   │   ├── 3.22.1
+│   │   │   │   ├── CMakeCCompiler.cmake
+│   │   │   │   ├── CMakeCXXCompiler.cmake
+│   │   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   │   │   ├── CMakeSystem.cmake
+│   │   │   │   ├── CompilerIdC
+│   │   │   │   │   ├── a.out
+│   │   │   │   │   ├── CMakeCCompilerId.c
+│   │   │   │   │   └── tmp
+│   │   │   │   └── CompilerIdCXX
+│   │   │   │       ├── a.out
+│   │   │   │       ├── CMakeCXXCompilerId.cpp
+│   │   │   │       └── tmp
+│   │   │   ├── cmake.check_cache
+│   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   ├── CMakeOutput.log
+│   │   │   ├── CMakeRuleHashes.txt
+│   │   │   ├── CMakeTmp
+│   │   │   ├── Makefile2
+│   │   │   ├── Makefile.cmake
+│   │   │   ├── progress.marks
+│   │   │   ├── pusantara_description_uninstall.dir
+│   │   │   │   ├── build.make
+│   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   ├── compiler_depend.make
+│   │   │   │   ├── compiler_depend.ts
+│   │   │   │   ├── DependInfo.cmake
+│   │   │   │   └── progress.make
+│   │   │   ├── TargetDirectories.txt
+│   │   │   └── uninstall.dir
+│   │   │       ├── build.make
+│   │   │       ├── cmake_clean.cmake
+│   │   │       ├── compiler_depend.make
+│   │   │       ├── compiler_depend.ts
+│   │   │       ├── DependInfo.cmake
+│   │   │       └── progress.make
+│   │   ├── cmake_install.cmake
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_build.sh
+│   │   ├── colcon_command_prefix_build.sh.env
+│   │   ├── CTestConfiguration.ini
+│   │   ├── CTestCustom.cmake
+│   │   ├── CTestTestfile.cmake
+│   │   ├── install_manifest.txt
+│   │   └── Makefile
+│   ├── pusantara_navigation
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── pusantara_navigation
+│   │   │           └── __init__.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── prefix_override
+│   │   │   ├── __pycache__
+│   │   │   │   └── sitecustomize.cpython-310.pyc
+│   │   │   └── sitecustomize.py
+│   │   └── pusantara_navigation.egg-info
+│   │       ├── dependency_links.txt
+│   │       ├── entry_points.txt
+│   │       ├── PKG-INFO
+│   │       ├── requires.txt
+│   │       ├── SOURCES.txt
+│   │       ├── top_level.txt
+│   │       └── zip-safe
+│   ├── qwen_assistant
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── qwen_assistant
+│   │   │           ├── __init__.py
+│   │   │           └── qwen_node.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── prefix_override
+│   │   │   ├── __pycache__
+│   │   │   │   └── sitecustomize.cpython-310.pyc
+│   │   │   └── sitecustomize.py
+│   │   └── qwen_assistant.egg-info
+│   │       ├── dependency_links.txt
+│   │       ├── entry_points.txt
+│   │       ├── PKG-INFO
+│   │       ├── requires.txt
+│   │       ├── SOURCES.txt
+│   │       ├── top_level.txt
+│   │       └── zip-safe
+│   ├── robot_face
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── robot_face
+│   │   │           ├── face_node.py
+│   │   │           └── __init__.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── prefix_override
+│   │   │   ├── __pycache__
+│   │   │   │   └── sitecustomize.cpython-310.pyc
+│   │   │   └── sitecustomize.py
+│   │   └── robot_face.egg-info
+│   │       ├── dependency_links.txt
+│   │       ├── entry_points.txt
+│   │       ├── PKG-INFO
+│   │       ├── requires.txt
+│   │       ├── SOURCES.txt
+│   │       ├── top_level.txt
+│   │       └── zip-safe
+│   ├── serial_bridge
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── serial_bridge
+│   │   │           ├── bridge_node.py
+│   │   │           ├── command_sender.py
+│   │   │           └── __init__.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── prefix_override
+│   │   │   ├── __pycache__
+│   │   │   │   └── sitecustomize.cpython-310.pyc
+│   │   │   └── sitecustomize.py
+│   │   └── serial_bridge.egg-info
+│   │       ├── dependency_links.txt
+│   │       ├── entry_points.txt
+│   │       ├── PKG-INFO
+│   │       ├── requires.txt
+│   │       ├── SOURCES.txt
+│   │       ├── top_level.txt
+│   │       └── zip-safe
+│   ├── speech_to_text
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── speech_to_text
+│   │   │           ├── __init__.py
+│   │   │           └── stt_node.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── prefix_override
+│   │   │   ├── __pycache__
+│   │   │   │   └── sitecustomize.cpython-310.pyc
+│   │   │   └── sitecustomize.py
+│   │   └── speech_to_text.egg-info
+│   │       ├── dependency_links.txt
+│   │       ├── entry_points.txt
+│   │       ├── PKG-INFO
+│   │       ├── requires.txt
+│   │       ├── SOURCES.txt
+│   │       ├── top_level.txt
+│   │       └── zip-safe
+│   ├── tts_node
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── tts_node
+│   │   │           ├── __init__.py
+│   │   │           ├── tts_node.py
+│   │   │           └── tts_sender.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── prefix_override
+│   │   │   ├── __pycache__
+│   │   │   │   └── sitecustomize.cpython-310.pyc
+│   │   │   └── sitecustomize.py
+│   │   └── tts_node.egg-info
+│   │       ├── dependency_links.txt
+│   │       ├── entry_points.txt
+│   │       ├── PKG-INFO
+│   │       ├── requires.txt
+│   │       ├── SOURCES.txt
+│   │       ├── top_level.txt
+│   │       └── zip-safe
+│   ├── vectra_odometry
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── vectra_odometry
+│   │   │           ├── __init__.py
+│   │   │           └── odometry_node.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── prefix_override
+│   │   │   ├── __pycache__
+│   │   │   │   └── sitecustomize.cpython-310.pyc
+│   │   │   └── sitecustomize.py
+│   │   └── vectra_odometry.egg-info
+│   │       ├── dependency_links.txt
+│   │       ├── entry_points.txt
+│   │       ├── PKG-INFO
+│   │       ├── requires.txt
+│   │       ├── SOURCES.txt
+│   │       ├── top_level.txt
+│   │       └── zip-safe
+│   ├── vectra_yolo
+│   │   ├── build
+│   │   │   └── lib
+│   │   │       └── vectra_yolo
+│   │   │           ├── __init__.py
+│   │   │           └── yolo_detector.py
+│   │   ├── colcon_build.rc
+│   │   ├── colcon_command_prefix_setup_py.sh
+│   │   ├── colcon_command_prefix_setup_py.sh.env
+│   │   ├── install.log
+│   │   ├── prefix_override
+│   │   │   ├── __pycache__
+│   │   │   │   └── sitecustomize.cpython-310.pyc
+│   │   │   └── sitecustomize.py
+│   │   └── vectra_yolo.egg-info
+│   │       ├── dependency_links.txt
+│   │       ├── entry_points.txt
+│   │       ├── PKG-INFO
+│   │       ├── requires.txt
+│   │       ├── SOURCES.txt
+│   │       ├── top_level.txt
+│   │       └── zip-safe
+│   └── visitor_greeter
+│       ├── build
+│       │   └── lib
+│       │       └── visitor_greeter
+│       │           ├── __init__.py
+│       │           └── visitor_greeter.py
+│       ├── colcon_build.rc
+│       ├── colcon_command_prefix_setup_py.sh
+│       ├── colcon_command_prefix_setup_py.sh.env
+│       ├── install.log
+│       ├── prefix_override
+│       │   ├── __pycache__
+│       │   │   └── sitecustomize.cpython-310.pyc
+│       │   └── sitecustomize.py
+│       └── visitor_greeter.egg-info
+│           ├── dependency_links.txt
+│           ├── entry_points.txt
+│           ├── PKG-INFO
+│           ├── requires.txt
+│           ├── SOURCES.txt
+│           ├── top_level.txt
+│           └── zip-safe
+├── camera_node
+│   ├── camera_node
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   └── webcam_pub.cpython-310.pyc
+│   │   └── webcam_pub.py
+│   ├── package.xml
+│   ├── resource
+│   │   └── camera_node
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── cavecare_mission
+│   ├── cavecare_mission
+│   │   ├── cavecare_panel.py
+│   │   ├── cave_mission_manager.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── cavecare_panel.cpython-310.pyc
+│   │       ├── cave_mission_manager.cpython-310.pyc
+│   │       └── __init__.cpython-310.pyc
+│   ├── package.xml
+│   ├── resource
+│   │   └── cavecare_mission
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── cmd_vel_bridge
+│   ├── cmd_vel_bridge
+│   │   ├── cmd_vel_to_robot_command.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── cmd_vel_to_robot_command.cpython-310.pyc
+│   │       └── __init__.cpython-310.pyc
+│   ├── package.xml
+│   ├── resource
+│   │   └── cmd_vel_bridge
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── dht11_gpio
+│   ├── dht11_gpio
+│   │   ├── dht11_node.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── dht11_node.cpython-310.pyc
+│   │       └── __init__.cpython-310.pyc
+│   ├── package.xml
+│   ├── resource
+│   │   └── dht11_gpio
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── esp32_wifi_receiver
+│   ├── esp32_wifi_receiver
+│   │   ├── esp32_http_receiver.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── esp32_http_receiver.cpython-310.pyc
+│   │       └── __init__.cpython-310.pyc
+│   ├── package.xml
+│   ├── resource
+│   │   └── esp32_wifi_receiver
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── food_quiz
+│   ├── food_quiz
+│   │   ├── build
+│   │   │   └── COLCON_IGNORE
+│   │   ├── cendol.jpg
+│   │   ├── foodquiz.py
+│   │   ├── __init__.py
+│   │   ├── install
+│   │   │   ├── COLCON_IGNORE
+│   │   │   ├── local_setup.bash
+│   │   │   ├── local_setup.ps1
+│   │   │   ├── local_setup.sh
+│   │   │   ├── _local_setup_util_ps1.py
+│   │   │   ├── _local_setup_util_sh.py
+│   │   │   ├── local_setup.zsh
+│   │   │   ├── setup.bash
+│   │   │   ├── setup.ps1
+│   │   │   ├── setup.sh
+│   │   │   └── setup.zsh
+│   │   ├── log
+│   │   │   ├── build_2026-06-13_15-53-41
+│   │   │   │   ├── events.log
+│   │   │   │   └── logger_all.log
+│   │   │   ├── COLCON_IGNORE
+│   │   │   ├── latest -> latest_build
+│   │   │   └── latest_build -> build_2026-06-13_15-53-41
+│   │   ├── nasi_kerabu.jpg
+│   │   ├── __pycache__
+│   │   │   ├── foodquiz.cpython-310.pyc
+│   │   │   └── __init__.cpython-310.pyc
+│   │   ├── satay.jpg
+│   │   └── tehtarik.jpg
+│   ├── package.xml
+│   ├── resource
+│   │   ├── cendol.jpg
+│   │   ├── food_quiz
+│   │   ├── nasi_kerabu.jpg
+│   │   ├── satay.jpg
+│   │   └── tehtarik.jpg
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── heritage_explainer
+│   ├── heritage_explainer
+│   │   ├── heritage_explainer.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── heritage_explainer.cpython-310.pyc
+│   │       └── __init__.cpython-310.pyc
+│   ├── package.xml
+│   ├── resource
+│   │   └── heritage_explainer
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── hls_lfcd_lds_driver
+│   ├── applications
+│   │   ├── lds_driver
+│   │   │   ├── lds_driver.cpp
+│   │   │   ├── lds_driver.hpp
+│   │   │   └── Makefile
+│   │   └── lds_polar_graph
+│   │       ├── lds_polar_graph.cpp
+│   │       ├── lds_polar_graph.hpp
+│   │       └── main.cpp
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── include
+│   │   └── hls_lfcd_lds_driver
+│   │       ├── hlds_laser_segment_publisher.hpp
+│   │       └── lfcd_laser.hpp
+│   ├── launch
+│   │   ├── hlds_laser.launch.py
+│   │   └── view_hlds_laser.launch.py
+│   ├── LICENSE
+│   ├── package.xml
+│   ├── README.md
+│   ├── rviz
+│   │   └── hlds_laser.rviz
+│   └── src
+│       ├── hlds_laser_publisher.cpp
+│       └── hlds_laser_segment_publisher.cpp
+├── install
+│   ├── apriltag_detector
+│   │   ├── lib
+│   │   │   ├── apriltag_detector
+│   │   │   │   └── apriltag_detector
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── apriltag_detector
+│   │   │           │   ├── apriltag_detector.py
+│   │   │           │   ├── __init__.py
+│   │   │           │   └── __pycache__
+│   │   │           │       ├── apriltag_detector.cpython-310.pyc
+│   │   │           │       └── __init__.cpython-310.pyc
+│   │   │           └── apriltag_detector-0.0.0-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── apriltag_detector
+│   │       ├── apriltag_detector
+│   │       │   ├── hook
+│   │       │   │   ├── ament_prefix_path.dsv
+│   │       │   │   ├── ament_prefix_path.ps1
+│   │       │   │   ├── ament_prefix_path.sh
+│   │       │   │   ├── pythonpath.dsv
+│   │       │   │   ├── pythonpath.ps1
+│   │       │   │   └── pythonpath.sh
+│   │       │   ├── package.bash
+│   │       │   ├── package.dsv
+│   │       │   ├── package.ps1
+│   │       │   ├── package.sh
+│   │       │   ├── package.xml
+│   │       │   └── package.zsh
+│   │       └── colcon-core
+│   │           └── packages
+│   │               └── apriltag_detector
+│   ├── apriltag_follower
+│   │   ├── lib
+│   │   │   ├── apriltag_follower
+│   │   │   │   └── apriltag_follower
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── apriltag_follower
+│   │   │           │   ├── apriltag_follower.py
+│   │   │           │   ├── __init__.py
+│   │   │           │   └── __pycache__
+│   │   │           │       ├── apriltag_follower.cpython-310.pyc
+│   │   │           │       └── __init__.cpython-310.pyc
+│   │   │           └── apriltag_follower-0.0.1-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── apriltag_follower
+│   │       ├── apriltag_follower
+│   │       │   ├── hook
+│   │       │   │   ├── ament_prefix_path.dsv
+│   │       │   │   ├── ament_prefix_path.ps1
+│   │       │   │   ├── ament_prefix_path.sh
+│   │       │   │   ├── pythonpath.dsv
+│   │       │   │   ├── pythonpath.ps1
+│   │       │   │   └── pythonpath.sh
+│   │       │   ├── package.bash
+│   │       │   ├── package.dsv
+│   │       │   ├── package.ps1
+│   │       │   ├── package.sh
+│   │       │   ├── package.xml
+│   │       │   └── package.zsh
+│   │       └── colcon-core
+│   │           └── packages
+│   │               └── apriltag_follower
+│   ├── batik_designer
+│   │   ├── lib
+│   │   │   ├── batik_designer
+│   │   │   │   └── batik_designer
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── batik_designer
+│   │   │           │   ├── batik_designer.py
+│   │   │           │   ├── __init__.py
+│   │   │           │   └── __pycache__
+│   │   │           │       ├── batik_designer.cpython-310.pyc
+│   │   │           │       └── __init__.cpython-310.pyc
+│   │   │           └── batik_designer-0.0.0-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── batik_designer
+│   │       ├── batik_designer
+│   │       │   ├── hook
+│   │       │   │   ├── ament_prefix_path.dsv
+│   │       │   │   ├── ament_prefix_path.ps1
+│   │       │   │   ├── ament_prefix_path.sh
+│   │       │   │   ├── pythonpath.dsv
+│   │       │   │   ├── pythonpath.ps1
+│   │       │   │   └── pythonpath.sh
+│   │       │   ├── package.bash
+│   │       │   ├── package.dsv
+│   │       │   ├── package.ps1
+│   │       │   ├── package.sh
+│   │       │   ├── package.xml
+│   │       │   └── package.zsh
+│   │       └── colcon-core
+│   │           └── packages
+│   │               └── batik_designer
+│   ├── bno055_driver
+│   │   ├── lib
+│   │   │   ├── bno055_driver
+│   │   │   │   └── imu_node
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── bno055_driver
+│   │   │           │   ├── imu_node.py
+│   │   │           │   ├── __init__.py
+│   │   │           │   └── __pycache__
+│   │   │           │       ├── imu_node.cpython-310.pyc
+│   │   │           │       └── __init__.cpython-310.pyc
+│   │   │           └── bno055_driver-0.0.1-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── bno055_driver
+│   │       ├── bno055_driver
+│   │       │   ├── hook
+│   │       │   │   ├── ament_prefix_path.dsv
+│   │       │   │   ├── ament_prefix_path.ps1
+│   │       │   │   ├── ament_prefix_path.sh
+│   │       │   │   ├── pythonpath.dsv
+│   │       │   │   ├── pythonpath.ps1
+│   │       │   │   └── pythonpath.sh
+│   │       │   ├── package.bash
+│   │       │   ├── package.dsv
+│   │       │   ├── package.ps1
+│   │       │   ├── package.sh
+│   │       │   ├── package.xml
+│   │       │   └── package.zsh
+│   │       └── colcon-core
+│   │           └── packages
+│   │               └── bno055_driver
+│   ├── camera_node
+│   │   ├── lib
+│   │   │   ├── camera_node
+│   │   │   │   └── webcam_pub
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── camera_node
+│   │   │           │   ├── __init__.py
+│   │   │           │   ├── __pycache__
+│   │   │           │   │   ├── __init__.cpython-310.pyc
+│   │   │           │   │   └── webcam_pub.cpython-310.pyc
+│   │   │           │   └── webcam_pub.py
+│   │   │           └── camera_node-0.0.0-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── camera_node
+│   │       ├── camera_node
+│   │       │   ├── hook
+│   │       │   │   ├── ament_prefix_path.dsv
+│   │       │   │   ├── ament_prefix_path.ps1
+│   │       │   │   ├── ament_prefix_path.sh
+│   │       │   │   ├── pythonpath.dsv
+│   │       │   │   ├── pythonpath.ps1
+│   │       │   │   └── pythonpath.sh
+│   │       │   ├── package.bash
+│   │       │   ├── package.dsv
+│   │       │   ├── package.ps1
+│   │       │   ├── package.sh
+│   │       │   ├── package.xml
+│   │       │   └── package.zsh
+│   │       └── colcon-core
+│   │           └── packages
+│   │               └── camera_node
+│   ├── cmd_vel_bridge
+│   │   ├── lib
+│   │   │   ├── cmd_vel_bridge
+│   │   │   │   └── cmd_vel_to_robot_command
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── cmd_vel_bridge
+│   │   │           │   ├── cmd_vel_to_robot_command.py
+│   │   │           │   ├── __init__.py
+│   │   │           │   └── __pycache__
+│   │   │           │       ├── cmd_vel_to_robot_command.cpython-310.pyc
+│   │   │           │       └── __init__.cpython-310.pyc
+│   │   │           └── cmd_vel_bridge-0.0.1-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── cmd_vel_bridge
+│   │       ├── cmd_vel_bridge
+│   │       │   ├── hook
+│   │       │   │   ├── ament_prefix_path.dsv
+│   │       │   │   ├── ament_prefix_path.ps1
+│   │       │   │   ├── ament_prefix_path.sh
+│   │       │   │   ├── pythonpath.dsv
+│   │       │   │   ├── pythonpath.ps1
+│   │       │   │   └── pythonpath.sh
+│   │       │   ├── package.bash
+│   │       │   ├── package.dsv
+│   │       │   ├── package.ps1
+│   │       │   ├── package.sh
+│   │       │   ├── package.xml
+│   │       │   └── package.zsh
+│   │       └── colcon-core
+│   │           └── packages
+│   │               └── cmd_vel_bridge
+│   ├── COLCON_IGNORE
+│   ├── food_quiz
+│   │   ├── lib
+│   │   │   ├── food_quiz
+│   │   │   │   └── food_quiz
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── food_quiz
+│   │   │           │   ├── foodquiz.py
+│   │   │           │   ├── __init__.py
+│   │   │           │   └── __pycache__
+│   │   │           │       ├── foodquiz.cpython-310.pyc
+│   │   │           │       └── __init__.cpython-310.pyc
+│   │   │           └── food_quiz-0.0.0-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── food_quiz
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── food_quiz
+│   │       └── food_quiz
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── images
+│   │           │   ├── cendol.jpg
+│   │           │   ├── nasi_kerabu.jpg
+│   │           │   ├── satay.jpg
+│   │           │   └── tehtarik.jpg
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── heritage_explainer
+│   │   ├── lib
+│   │   │   ├── heritage_explainer
+│   │   │   │   └── heritage_explainer
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── heritage_explainer
+│   │   │           │   ├── heritage_explainer.py
+│   │   │           │   ├── __init__.py
+│   │   │           │   └── __pycache__
+│   │   │           │       ├── heritage_explainer.cpython-310.pyc
+│   │   │           │       └── __init__.cpython-310.pyc
+│   │   │           └── heritage_explainer-0.0.1-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── heritage_explainer
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── heritage_explainer
+│   │       └── heritage_explainer
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── hls_lfcd_lds_driver
+│   │   ├── lib
+│   │   │   └── hls_lfcd_lds_driver
+│   │   │       └── hlds_laser_publisher
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       ├── package_run_dependencies
+│   │       │       │   └── hls_lfcd_lds_driver
+│   │       │       ├── packages
+│   │       │       │   └── hls_lfcd_lds_driver
+│   │       │       └── parent_prefix_path
+│   │       │           └── hls_lfcd_lds_driver
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── hls_lfcd_lds_driver
+│   │       └── hls_lfcd_lds_driver
+│   │           ├── cmake
+│   │           │   ├── ament_cmake_export_dependencies-extras.cmake
+│   │           │   ├── ament_cmake_export_include_directories-extras.cmake
+│   │           │   ├── hls_lfcd_lds_driverConfig.cmake
+│   │           │   └── hls_lfcd_lds_driverConfig-version.cmake
+│   │           ├── environment
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── path.dsv
+│   │           │   └── path.sh
+│   │           ├── hook
+│   │           │   ├── cmake_prefix_path.dsv
+│   │           │   ├── cmake_prefix_path.ps1
+│   │           │   └── cmake_prefix_path.sh
+│   │           ├── launch
+│   │           │   ├── hlds_laser.launch.py
+│   │           │   ├── __pycache__
+│   │           │   │   └── hlds_laser.launch.cpython-310.pyc
+│   │           │   └── view_hlds_laser.launch.py
+│   │           ├── local_setup.bash
+│   │           ├── local_setup.dsv
+│   │           ├── local_setup.sh
+│   │           ├── local_setup.zsh
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           ├── package.zsh
+│   │           └── rviz
+│   │               └── hlds_laser.rviz
+│   ├── keris_demo
+│   │   ├── lib
+│   │   │   ├── keris_demo
+│   │   │   │   └── keris_demo
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── keris_demo
+│   │   │           │   ├── __init__.py
+│   │   │           │   ├── keris_demo.py
+│   │   │           │   └── __pycache__
+│   │   │           │       ├── __init__.cpython-310.pyc
+│   │   │           │       └── keris_demo.cpython-310.pyc
+│   │   │           └── keris_demo-0.0.0-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── keris_demo
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── keris_demo
+│   │       └── keris_demo
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── local_setup.bash
+│   ├── local_setup.ps1
+│   ├── local_setup.sh
+│   ├── _local_setup_util_ps1.py
+│   ├── _local_setup_util_sh.py
+│   ├── local_setup.zsh
+│   ├── malaysia_history_quiz
+│   │   ├── lib
+│   │   │   ├── malaysia_history_quiz
+│   │   │   │   └── history_quiz
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── malaysia_history_quiz
+│   │   │           │   ├── history_quiz.py
+│   │   │           │   ├── __init__.py
+│   │   │           │   └── __pycache__
+│   │   │           │       ├── history_quiz.cpython-310.pyc
+│   │   │           │       └── __init__.cpython-310.pyc
+│   │   │           └── malaysia_history_quiz-0.0.1-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── malaysia_history_quiz
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── malaysia_history_quiz
+│   │       └── malaysia_history_quiz
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── images
+│   │           │   ├── batu_caves.jpg
+│   │           │   ├── independence.jpg
+│   │           │   ├── jata_negara.jpg
+│   │           │   ├── kinabalu.jpg
+│   │           │   ├── malacca.jpg
+│   │           │   ├── merdeka.jpg
+│   │           │   ├── national_museum.jpg
+│   │           │   ├── parliament.jpg
+│   │           │   ├── petronas.jpg
+│   │           │   └── tunku.jpg
+│   │           ├── launch
+│   │           │   ├── history_quiz.launch.py
+│   │           │   └── __pycache__
+│   │           │       └── history_quiz.launch.cpython-310.pyc
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── motion_manager
+│   │   ├── lib
+│   │   │   ├── motion_manager
+│   │   │   │   └── motion_manager
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── motion_manager
+│   │   │           │   ├── __init__.py
+│   │   │           │   ├── motion_manager.py
+│   │   │           │   └── __pycache__
+│   │   │           │       ├── __init__.cpython-310.pyc
+│   │   │           │       └── motion_manager.cpython-310.pyc
+│   │   │           └── motion_manager-0.0.0-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── motion_manager
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── motion_manager
+│   │       └── motion_manager
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── person_follower
+│   │   ├── lib
+│   │   │   ├── person_follower
+│   │   │   │   └── person_follower
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── person_follower
+│   │   │           │   ├── __init__.py
+│   │   │           │   ├── person_follower.py
+│   │   │           │   └── __pycache__
+│   │   │           │       ├── __init__.cpython-310.pyc
+│   │   │           │       └── person_follower.cpython-310.pyc
+│   │   │           └── person_follower-0.0.0-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── person_follower
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── person_follower
+│   │       └── person_follower
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── pusantara_admin
+│   │   ├── lib
+│   │   │   ├── pusantara_admin
+│   │   │   │   └── admin_console
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── pusantara_admin
+│   │   │           │   ├── admin_console.py
+│   │   │           │   ├── camera_widget.py
+│   │   │           │   ├── __init__.py
+│   │   │           │   ├── lidar_widget.py
+│   │   │           │   ├── node_manager.py
+│   │   │           │   ├── patch_console.py
+│   │   │           │   ├── __pycache__
+│   │   │           │   │   ├── admin_console.cpython-310.pyc
+│   │   │           │   │   ├── camera_widget.cpython-310.pyc
+│   │   │           │   │   ├── __init__.cpython-310.pyc
+│   │   │           │   │   ├── lidar_widget.cpython-310.pyc
+│   │   │           │   │   ├── node_manager.cpython-310.pyc
+│   │   │           │   │   ├── patch_console.cpython-310.pyc
+│   │   │           │   │   └── system_monitor.cpython-310.pyc
+│   │   │           │   └── system_monitor.py
+│   │   │           └── pusantara_admin-0.0.0-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── pusantara_admin
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── pusantara_admin
+│   │       └── pusantara_admin
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── pusantara_bringup
+│   │   ├── lib
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── pusantara_bringup
+│   │   │           │   ├── __init__.py
+│   │   │           │   └── __pycache__
+│   │   │           │       └── __init__.cpython-310.pyc
+│   │   │           └── pusantara_bringup-0.0.1-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── pusantara_bringup
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── pusantara_bringup
+│   │       └── pusantara_bringup
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── launch
+│   │           │   ├── __pycache__
+│   │           │   │   └── robot.launch.cpython-310.pyc
+│   │           │   └── robot.launch.py
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── pusantara_description
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       ├── package_run_dependencies
+│   │       │       │   └── pusantara_description
+│   │       │       ├── packages
+│   │       │       │   └── pusantara_description
+│   │       │       └── parent_prefix_path
+│   │       │           └── pusantara_description
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── pusantara_description
+│   │       └── pusantara_description
+│   │           ├── cmake
+│   │           │   ├── pusantara_descriptionConfig.cmake
+│   │           │   └── pusantara_descriptionConfig-version.cmake
+│   │           ├── environment
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── path.dsv
+│   │           │   └── path.sh
+│   │           ├── hook
+│   │           │   ├── cmake_prefix_path.dsv
+│   │           │   ├── cmake_prefix_path.ps1
+│   │           │   └── cmake_prefix_path.sh
+│   │           ├── launch
+│   │           │   └── display.launch.py
+│   │           ├── local_setup.bash
+│   │           ├── local_setup.dsv
+│   │           ├── local_setup.sh
+│   │           ├── local_setup.zsh
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           ├── package.zsh
+│   │           ├── rviz
+│   │           │   ├── pusantaraBOT.rviz
+│   │           │   └── pusantara.rviz
+│   │           └── urdf
+│   │               └── pusantara.urdf.xacro
+│   ├── pusantara_navigation
+│   │   ├── lib
+│   │   │   └── python3.10
+│   │   │       └── site-packages
+│   │   │           ├── pusantara_navigation
+│   │   │           │   ├── __init__.py
+│   │   │           │   └── __pycache__
+│   │   │           │       └── __init__.cpython-310.pyc
+│   │   │           └── pusantara_navigation-0.0.0-py3.10.egg-info
+│   │   │               ├── dependency_links.txt
+│   │   │               ├── entry_points.txt
+│   │   │               ├── PKG-INFO
+│   │   │               ├── requires.txt
+│   │   │               ├── SOURCES.txt
+│   │   │               ├── top_level.txt
+│   │   │               └── zip-safe
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── pusantara_navigation
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── pusantara_navigation
+│   │       └── pusantara_navigation
+│   │           ├── config
+│   │           │   └── nav2_params.yaml
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── launch
+│   │           │   ├── navigation.launch.py
+│   │           │   └── __pycache__
+│   │           │       └── navigation.launch.cpython-310.pyc
+│   │           ├── maps
+│   │           │   ├── museum.pgm
+│   │           │   └── museum.yaml
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── qwen_assistant
+│   │   ├── lib
+│   │   │   ├── python3.10
+│   │   │   │   └── site-packages
+│   │   │   │       ├── qwen_assistant
+│   │   │   │       │   ├── __init__.py
+│   │   │   │       │   ├── __pycache__
+│   │   │   │       │   │   ├── __init__.cpython-310.pyc
+│   │   │   │       │   │   └── qwen_node.cpython-310.pyc
+│   │   │   │       │   └── qwen_node.py
+│   │   │   │       └── qwen_assistant-0.0.0-py3.10.egg-info
+│   │   │   │           ├── dependency_links.txt
+│   │   │   │           ├── entry_points.txt
+│   │   │   │           ├── PKG-INFO
+│   │   │   │           ├── requires.txt
+│   │   │   │           ├── SOURCES.txt
+│   │   │   │           ├── top_level.txt
+│   │   │   │           └── zip-safe
+│   │   │   └── qwen_assistant
+│   │   │       └── qwen_node
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── qwen_assistant
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── qwen_assistant
+│   │       └── qwen_assistant
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── robot_face
+│   │   ├── lib
+│   │   │   ├── python3.10
+│   │   │   │   └── site-packages
+│   │   │   │       ├── robot_face
+│   │   │   │       │   ├── face_node.py
+│   │   │   │       │   ├── __init__.py
+│   │   │   │       │   └── __pycache__
+│   │   │   │       │       ├── face_node.cpython-310.pyc
+│   │   │   │       │       └── __init__.cpython-310.pyc
+│   │   │   │       └── robot_face-0.0.0-py3.10.egg-info
+│   │   │   │           ├── dependency_links.txt
+│   │   │   │           ├── entry_points.txt
+│   │   │   │           ├── PKG-INFO
+│   │   │   │           ├── requires.txt
+│   │   │   │           ├── SOURCES.txt
+│   │   │   │           ├── top_level.txt
+│   │   │   │           └── zip-safe
+│   │   │   └── robot_face
+│   │   │       └── face_node
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── robot_face
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── robot_face
+│   │       └── robot_face
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── serial_bridge
+│   │   ├── lib
+│   │   │   ├── python3.10
+│   │   │   │   └── site-packages
+│   │   │   │       ├── serial_bridge
+│   │   │   │       │   ├── bridge_node.py
+│   │   │   │       │   ├── command_sender.py
+│   │   │   │       │   ├── __init__.py
+│   │   │   │       │   └── __pycache__
+│   │   │   │       │       ├── bridge_node.cpython-310.pyc
+│   │   │   │       │       ├── command_sender.cpython-310.pyc
+│   │   │   │       │       └── __init__.cpython-310.pyc
+│   │   │   │       └── serial_bridge-0.0.0-py3.10.egg-info
+│   │   │   │           ├── dependency_links.txt
+│   │   │   │           ├── entry_points.txt
+│   │   │   │           ├── PKG-INFO
+│   │   │   │           ├── requires.txt
+│   │   │   │           ├── SOURCES.txt
+│   │   │   │           ├── top_level.txt
+│   │   │   │           └── zip-safe
+│   │   │   └── serial_bridge
+│   │   │       ├── bridge_node
+│   │   │       └── command_sender
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── serial_bridge
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── serial_bridge
+│   │       └── serial_bridge
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── setup.bash
+│   ├── setup.ps1
+│   ├── setup.sh
+│   ├── setup.zsh
+│   ├── speech_to_text
+│   │   ├── lib
+│   │   │   ├── python3.10
+│   │   │   │   └── site-packages
+│   │   │   │       ├── speech_to_text
+│   │   │   │       │   ├── __init__.py
+│   │   │   │       │   ├── __pycache__
+│   │   │   │       │   │   ├── __init__.cpython-310.pyc
+│   │   │   │       │   │   └── stt_node.cpython-310.pyc
+│   │   │   │       │   └── stt_node.py
+│   │   │   │       └── speech_to_text-0.0.0-py3.10.egg-info
+│   │   │   │           ├── dependency_links.txt
+│   │   │   │           ├── entry_points.txt
+│   │   │   │           ├── PKG-INFO
+│   │   │   │           ├── requires.txt
+│   │   │   │           ├── SOURCES.txt
+│   │   │   │           ├── top_level.txt
+│   │   │   │           └── zip-safe
+│   │   │   └── speech_to_text
+│   │   │       └── stt_node
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── speech_to_text
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── speech_to_text
+│   │       └── speech_to_text
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── tts_node
+│   │   ├── lib
+│   │   │   ├── python3.10
+│   │   │   │   └── site-packages
+│   │   │   │       ├── tts_node
+│   │   │   │       │   ├── __init__.py
+│   │   │   │       │   ├── __pycache__
+│   │   │   │       │   │   ├── __init__.cpython-310.pyc
+│   │   │   │       │   │   ├── tts_node.cpython-310.pyc
+│   │   │   │       │   │   └── tts_sender.cpython-310.pyc
+│   │   │   │       │   ├── tts_node.py
+│   │   │   │       │   └── tts_sender.py
+│   │   │   │       └── tts_node-0.0.0-py3.10.egg-info
+│   │   │   │           ├── dependency_links.txt
+│   │   │   │           ├── entry_points.txt
+│   │   │   │           ├── PKG-INFO
+│   │   │   │           ├── requires.txt
+│   │   │   │           ├── SOURCES.txt
+│   │   │   │           ├── top_level.txt
+│   │   │   │           └── zip-safe
+│   │   │   └── tts_node
+│   │   │       ├── tts_node
+│   │   │       └── tts_sender
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── tts_node
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── tts_node
+│   │       └── tts_node
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── vectra_odometry
+│   │   ├── lib
+│   │   │   ├── python3.10
+│   │   │   │   └── site-packages
+│   │   │   │       ├── vectra_odometry
+│   │   │   │       │   ├── __init__.py
+│   │   │   │       │   ├── odometry_node.py
+│   │   │   │       │   └── __pycache__
+│   │   │   │       │       ├── __init__.cpython-310.pyc
+│   │   │   │       │       └── odometry_node.cpython-310.pyc
+│   │   │   │       └── vectra_odometry-1.0.0-py3.10.egg-info
+│   │   │   │           ├── dependency_links.txt
+│   │   │   │           ├── entry_points.txt
+│   │   │   │           ├── PKG-INFO
+│   │   │   │           ├── requires.txt
+│   │   │   │           ├── SOURCES.txt
+│   │   │   │           ├── top_level.txt
+│   │   │   │           └── zip-safe
+│   │   │   └── vectra_odometry
+│   │   │       └── odometry_node
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── vectra_odometry
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── vectra_odometry
+│   │       └── vectra_odometry
+│   │           ├── config
+│   │           │   └── odometry.yaml
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── launch
+│   │           │   ├── odometry.launch.py
+│   │           │   └── __pycache__
+│   │           │       └── odometry.launch.cpython-310.pyc
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   ├── vectra_yolo
+│   │   ├── lib
+│   │   │   ├── python3.10
+│   │   │   │   └── site-packages
+│   │   │   │       ├── vectra_yolo
+│   │   │   │       │   ├── __init__.py
+│   │   │   │       │   ├── __pycache__
+│   │   │   │       │   │   ├── __init__.cpython-310.pyc
+│   │   │   │       │   │   └── yolo_detector.cpython-310.pyc
+│   │   │   │       │   └── yolo_detector.py
+│   │   │   │       └── vectra_yolo-0.0.0-py3.10.egg-info
+│   │   │   │           ├── dependency_links.txt
+│   │   │   │           ├── entry_points.txt
+│   │   │   │           ├── PKG-INFO
+│   │   │   │           ├── requires.txt
+│   │   │   │           ├── SOURCES.txt
+│   │   │   │           ├── top_level.txt
+│   │   │   │           └── zip-safe
+│   │   │   └── vectra_yolo
+│   │   │       └── yolo_detector
+│   │   └── share
+│   │       ├── ament_index
+│   │       │   └── resource_index
+│   │       │       └── packages
+│   │       │           └── vectra_yolo
+│   │       ├── colcon-core
+│   │       │   └── packages
+│   │       │       └── vectra_yolo
+│   │       └── vectra_yolo
+│   │           ├── hook
+│   │           │   ├── ament_prefix_path.dsv
+│   │           │   ├── ament_prefix_path.ps1
+│   │           │   ├── ament_prefix_path.sh
+│   │           │   ├── pythonpath.dsv
+│   │           │   ├── pythonpath.ps1
+│   │           │   └── pythonpath.sh
+│   │           ├── package.bash
+│   │           ├── package.dsv
+│   │           ├── package.ps1
+│   │           ├── package.sh
+│   │           ├── package.xml
+│   │           └── package.zsh
+│   └── visitor_greeter
+│       ├── lib
+│       │   ├── python3.10
+│       │   │   └── site-packages
+│       │   │       ├── visitor_greeter
+│       │   │       │   ├── __init__.py
+│       │   │       │   ├── __pycache__
+│       │   │       │   │   ├── __init__.cpython-310.pyc
+│       │   │       │   │   └── visitor_greeter.cpython-310.pyc
+│       │   │       │   └── visitor_greeter.py
+│       │   │       └── visitor_greeter-0.0.1-py3.10.egg-info
+│       │   │           ├── dependency_links.txt
+│       │   │           ├── entry_points.txt
+│       │   │           ├── PKG-INFO
+│       │   │           ├── requires.txt
+│       │   │           ├── SOURCES.txt
+│       │   │           ├── top_level.txt
+│       │   │           └── zip-safe
+│       │   └── visitor_greeter
+│       │       └── visitor_greeter
+│       └── share
+│           ├── ament_index
+│           │   └── resource_index
+│           │       └── packages
+│           │           └── visitor_greeter
+│           ├── colcon-core
+│           │   └── packages
+│           │       └── visitor_greeter
+│           └── visitor_greeter
+│               ├── hook
+│               │   ├── ament_prefix_path.dsv
+│               │   ├── ament_prefix_path.ps1
+│               │   ├── ament_prefix_path.sh
+│               │   ├── pythonpath.dsv
+│               │   ├── pythonpath.ps1
+│               │   └── pythonpath.sh
+│               ├── package.bash
+│               ├── package.dsv
+│               ├── package.ps1
+│               ├── package.sh
+│               ├── package.xml
+│               └── package.zsh
+├── keris_demo
+│   ├── keris_demo
+│   │   ├── __init__.py
+│   │   ├── keris_demo.py
+│   │   ├── keris.png
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-310.pyc
+│   │       └── keris_demo.cpython-310.pyc
+│   ├── package.xml
+│   ├── resource
+│   │   ├── keris_demo
+│   │   └── keris.png
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── log
+│   ├── build_2026-07-01_17-51-50
+│   │   ├── apriltag_detector
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── apriltag_follower
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── batik_designer
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── bno055_driver
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── camera_node
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── cmd_vel_bridge
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── events.log
+│   │   ├── food_quiz
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── heritage_explainer
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── hls_lfcd_lds_driver
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── keris_demo
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── logger_all.log
+│   │   ├── malaysia_history_quiz
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── motion_manager
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── person_follower
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── pusantara_admin
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── pusantara_bringup
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── pusantara_description
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── pusantara_navigation
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── qwen_assistant
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── robot_face
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── serial_bridge
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── speech_to_text
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── tts_node
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── vectra_odometry
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── vectra_yolo
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   └── visitor_greeter
+│   │       ├── command.log
+│   │       ├── stderr.log
+│   │       ├── stdout.log
+│   │       ├── stdout_stderr.log
+│   │       └── streams.log
+│   ├── build_2026-07-01_17-55-21
+│   │   ├── apriltag_detector
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── apriltag_follower
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── batik_designer
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── bno055_driver
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── camera_node
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── cmd_vel_bridge
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── events.log
+│   │   ├── food_quiz
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── heritage_explainer
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── hls_lfcd_lds_driver
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── keris_demo
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── logger_all.log
+│   │   ├── malaysia_history_quiz
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── motion_manager
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── person_follower
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── pusantara_admin
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── pusantara_bringup
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── pusantara_description
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── pusantara_navigation
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── qwen_assistant
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── robot_face
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── serial_bridge
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── speech_to_text
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── tts_node
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── vectra_odometry
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── vectra_yolo
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   └── visitor_greeter
+│   │       ├── command.log
+│   │       ├── stderr.log
+│   │       ├── stdout.log
+│   │       ├── stdout_stderr.log
+│   │       └── streams.log
+│   ├── build_2026-07-01_18-12-01
+│   │   ├── apriltag_detector
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── apriltag_follower
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── batik_designer
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── bno055_driver
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── camera_node
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── cmd_vel_bridge
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── events.log
+│   │   ├── food_quiz
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── heritage_explainer
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── hls_lfcd_lds_driver
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── keris_demo
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── logger_all.log
+│   │   ├── malaysia_history_quiz
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── motion_manager
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── person_follower
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── pusantara_admin
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── pusantara_bringup
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── pusantara_description
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── pusantara_navigation
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── qwen_assistant
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── robot_face
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── serial_bridge
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── speech_to_text
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── tts_node
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── vectra_odometry
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   ├── vectra_yolo
+│   │   │   ├── command.log
+│   │   │   ├── stderr.log
+│   │   │   ├── stdout.log
+│   │   │   ├── stdout_stderr.log
+│   │   │   └── streams.log
+│   │   └── visitor_greeter
+│   │       ├── command.log
+│   │       ├── stderr.log
+│   │       ├── stdout.log
+│   │       ├── stdout_stderr.log
+│   │       └── streams.log
+│   ├── build_2026-07-01_18-12-25
+│   │   ├── events.log
+│   │   └── logger_all.log
+│   ├── build_2026-07-01_18-13-29
+│   │   ├── events.log
+│   │   └── logger_all.log
+│   ├── build_2026-07-01_18-13-41
+│   │   ├── events.log
+│   │   ├── logger_all.log
+│   │   └── pusantara_admin
+│   │       ├── command.log
+│   │       ├── stderr.log
+│   │       ├── stdout.log
+│   │       ├── stdout_stderr.log
+│   │       └── streams.log
+│   ├── COLCON_IGNORE
+│   ├── latest -> latest_list
+│   ├── latest_build -> build_2026-07-01_18-13-41
+│   ├── latest_list -> list_2026-07-05_08-03-45
+│   └── list_2026-07-05_08-03-45
+│       └── logger_all.log
+├── malaysia_history_quiz
+│   ├── images
+│   │   ├── batu_caves.jpg
+│   │   ├── independence.jpg
+│   │   ├── jata_negara.jpg
+│   │   ├── kinabalu.jpg
+│   │   ├── malacca.jpg
+│   │   ├── merdeka.jpg
+│   │   ├── national_museum.jpg
+│   │   ├── parliament.jpg
+│   │   ├── petronas.jpg
+│   │   └── tunku.jpg
+│   ├── launch
+│   │   └── history_quiz.launch.py
+│   ├── LICENSE
+│   ├── malaysia_history_quiz
+│   │   ├── history_quiz.py
+│   │   └── __init__.py
+│   ├── package.xml
+│   ├── resource
+│   │   └── malaysia_history_quiz
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── mold_detector
+│   ├── mold_detector
+│   │   ├── __init__.py
+│   │   ├── mold_detector_node.py
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-310.pyc
+│   │       └── mold_detector_node.cpython-310.pyc
+│   ├── package.xml
+│   ├── resource
+│   │   └── mold_detector
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── motion_manager
+│   ├── motion_manager
+│   │   ├── build
+│   │   │   └── COLCON_IGNORE
+│   │   ├── __init__.py
+│   │   ├── install
+│   │   │   ├── COLCON_IGNORE
+│   │   │   ├── local_setup.bash
+│   │   │   ├── local_setup.ps1
+│   │   │   ├── local_setup.sh
+│   │   │   ├── _local_setup_util_ps1.py
+│   │   │   ├── _local_setup_util_sh.py
+│   │   │   ├── local_setup.zsh
+│   │   │   ├── setup.bash
+│   │   │   ├── setup.ps1
+│   │   │   ├── setup.sh
+│   │   │   └── setup.zsh
+│   │   ├── log
+│   │   │   ├── build_2026-06-17_18-00-43
+│   │   │   │   ├── events.log
+│   │   │   │   └── logger_all.log
+│   │   │   ├── build_2026-06-17_18-01-11
+│   │   │   │   ├── events.log
+│   │   │   │   └── logger_all.log
+│   │   │   ├── COLCON_IGNORE
+│   │   │   ├── latest -> latest_build
+│   │   │   └── latest_build -> build_2026-06-17_18-01-11
+│   │   ├── motion_manager.py
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-310.pyc
+│   │       └── motion_manager.cpython-310.pyc
+│   ├── package.xml
+│   ├── resource
+│   │   └── motion_manager
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── person_follower
+│   ├── package.xml
+│   ├── person_follower
+│   │   ├── __init__.py
+│   │   ├── person_follower.py
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-310.pyc
+│   │       └── person_follower.cpython-310.pyc
+│   ├── resource
+│   │   └── person_follower
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── pusantara_admin
+│   ├── package.xml
+│   ├── pusantara_admin
+│   │   ├── admin_console.py
+│   │   ├── admin_console .txt
+│   │   ├── camera_widget.py
+│   │   ├── __init__.py
+│   │   ├── lidar_widget.py
+│   │   ├── node_manager.py
+│   │   ├── patch_console.py
+│   │   ├── patch_final.py
+│   │   ├── patch_syslog_layout.py
+│   │   ├── __pycache__
+│   │   │   ├── admin_console.cpython-310.pyc
+│   │   │   ├── camera_widget.cpython-310.pyc
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   ├── lidar_widget.cpython-310.pyc
+│   │   │   ├── node_manager.cpython-310.pyc
+│   │   │   └── system_monitor.cpython-310.pyc
+│   │   └── system_monitor.py
+│   ├── resource
+│   │   └── pusantara_admin
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── pusantara_bringup
+│   ├── launch
+│   │   └── robot.launch.py
+│   ├── package.xml
+│   ├── pusantara_bringup
+│   │   └── __init__.py
+│   ├── resource
+│   │   └── pusantara_bringup
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── pusantara_demo_loop
+│   ├── package.xml
+│   ├── pusantara_demo_loop
+│   │   ├── demo_loop.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── demo_loop.cpython-310.pyc
+│   │       └── __init__.cpython-310.pyc
+│   ├── resource
+│   │   └── pusantara_demo_loop
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── pusantara_description
+│   ├── CMakeLists.txt
+│   ├── include
+│   │   └── pusantara_description
+│   ├── launch
+│   │   └── display.launch.py
+│   ├── package.xml
+│   ├── rviz
+│   │   ├── pusantaraBOT.rviz
+│   │   └── pusantara.rviz
+│   ├── src
+│   └── urdf
+│       └── pusantara.urdf.xacro
+├── pusantara_navigation
+│   ├── config
+│   │   ├── nav2_params.yaml
+│   │   ├── simple_nav_through_poses.xml
+│   │   └── simple_nav_to_pose.xml
+│   ├── launch
+│   │   └── navigation.launch.py
+│   ├── maps
+│   │   ├── museum.pgm
+│   │   └── museum.yaml
+│   ├── package.xml
+│   ├── pusantara_navigation
+│   │   └── __init__.py
+│   ├── resource
+│   │   └── pusantara_navigation
+│   ├── rviz
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── qwen_assistant
+│   ├── package.xml
+│   ├── qwen_assistant
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   └── qwen_node.cpython-310.pyc
+│   │   └── qwen_node.py
+│   ├── resource
+│   │   └── qwen_assistant
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── robot_face
+│   ├── package.xml
+│   ├── resource
+│   │   └── robot_face
+│   ├── robot_face
+│   │   ├── face_node.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── face_node.cpython-310.pyc
+│   │       └── __init__.cpython-310.pyc
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── serial_bridge
+│   ├── package.xml
+│   ├── resource
+│   │   └── serial_bridge
+│   ├── serial_bridge
+│   │   ├── bridge_node.py
+│   │   ├── command_sender.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── bridge_node.cpython-310.pyc
+│   │       ├── command_sender.cpython-310.pyc
+│   │       └── __init__.cpython-310.pyc
+│   ├── setup.cfg
+│   ├── setup.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── speech_to_text
+│   ├── package.xml
+│   ├── resource
+│   │   └── speech_to_text
+│   ├── setup.cfg
+│   ├── setup.py
+│   ├── speech_to_text
+│   │   ├── __init__.py
+│   │   └── stt_node.py
+│   └── test
+│       ├── test_copyright.py
+│       ├── test_flake8.py
+│       └── test_pep257.py
+├── treesrc.txt
+├── tts_node
+│   ├── package.xml
+│   ├── resource
+│   │   └── tts_node
+│   ├── setup.cfg
+│   ├── setup.py
+│   ├── test
+│   │   ├── test_copyright.py
+│   │   ├── test_flake8.py
+│   │   └── test_pep257.py
+│   └── tts_node
+│       ├── __init__.py
+│       ├── __pycache__
+│       │   ├── __init__.cpython-310.pyc
+│       │   ├── tts_node.cpython-310.pyc
+│       │   └── tts_sender.cpython-310.pyc
+│       ├── tts_node.py
+│       └── tts_sender.py
+├── VECTRA 2026 - Creative Category Rules and Regulations (1).pdf
+├── vectra_odometry
+│   ├── config
+│   │   └── odometry.yaml
+│   ├── launch
+│   │   └── odometry.launch.py
+│   ├── LICENSE
+│   ├── package.xml
+│   ├── resource
+│   │   └── vectra_odometry
+│   ├── setup.cfg
+│   ├── setup.py
+│   ├── test
+│   │   ├── test_copyright.py
+│   │   ├── test_flake8.py
+│   │   └── test_pep257.py
+│   └── vectra_odometry
+│       ├── __init__.py
+│       ├── odometry_node.py
+│       └── __pycache__
+│           ├── __init__.cpython-310.pyc
+│           └── odometry_node.cpython-310.pyc
+├── vectra_yolo
+│   ├── package.xml
+│   ├── resource
+│   │   └── vectra_yolo
+│   ├── setup.cfg
+│   ├── setup.py
+│   ├── test
+│   │   ├── test_copyright.py
+│   │   ├── test_flake8.py
+│   │   └── test_pep257.py
+│   └── vectra_yolo
+│       ├── __init__.py
+│       ├── __pycache__
+│       │   ├── __init__.cpython-310.pyc
+│       │   └── yolo_detector.cpython-310.pyc
+│       └── yolo_detector.py
+├── visitor_greeter
+│   ├── package.xml
+│   ├── resource
+│   │   └── visitor_greeter
+│   ├── setup.cfg
+│   ├── setup.py
+│   ├── test
+│   │   ├── test_copyright.py
+│   │   ├── test_flake8.py
+│   │   └── test_pep257.py
+│   └── visitor_greeter
+│       ├── __init__.py
+│       ├── __pycache__
+│       │   ├── __init__.cpython-310.pyc
+│       │   └── visitor_greeter.cpython-310.pyc
+│       └── visitor_greeter.py
+└── yolov8n.pt
+
+886 directories, 1996 files
