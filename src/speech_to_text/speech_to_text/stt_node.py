@@ -32,11 +32,11 @@ class SpeechToTextNode(Node):
         self.record_seconds = 4
 
         self.get_logger().info(
-            "Loading Whisper Base..."
+            "Loading Whisper Small..."
         )
 
         self.model = WhisperModel(
-            "base",
+            "small",
             device="cpu",
             compute_type="int8"
         )
@@ -44,7 +44,7 @@ class SpeechToTextNode(Node):
         self.get_logger().info(
             "Whisper Ready"
         )
-
+        
         self.get_logger().info(
             f'Wake word: "{self.wake_word}"'
         )
@@ -89,8 +89,13 @@ class SpeechToTextNode(Node):
                 )
 
                 segments, info = self.model.transcribe(
-                    wav_file,
-                    beam_size=5
+                  wav_file,
+                 language="en",
+                 beam_size=5,
+                 task="transcribe",
+                 vad_filter=True,
+                 condition_on_previous_text=False,
+                 initial_prompt="This is a robot voice command system. Common  words include robot, move forward, move backward, turn left, turn right, stop, detect color, red, green, blue."
                 )
 
                 text = ""

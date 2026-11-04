@@ -84,6 +84,32 @@ def generate_launch_description():
             output='screen'
         ),
 
+
+
+        ##################################################
+        # camera_node
+        ##################################################
+
+        Node(
+            package='camera_node',
+            executable='webcam_pub',
+            name='camera_node',
+            output='screen'
+        ),
+
+
+        ##################################################
+        # tts_node
+        ##################################################
+
+        Node(
+            package='tts_node',
+            executable='tts_node',
+            name='tts_node',
+            output='screen'
+        ),
+
+
         ##################################################
         # Odometry
         ##################################################

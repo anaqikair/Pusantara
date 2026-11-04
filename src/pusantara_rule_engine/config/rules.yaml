@@ -1,0 +1,99 @@
+settings:
+  discovery_period: 2.0
+  cooldown: 2.0
+  command_rate_hz: 10.0
+
+  allowed_publish_topics:
+    - /cmd_vel
+    - /tts_text
+    - /robot_command
+
+  subscribe_all: false
+
+  exclude_message_types:
+    - sensor_msgs/msg/Image
+    - sensor_msgs/msg/CompressedImage
+    - sensor_msgs/msg/PointCloud2
+
+rules:
+  # RULE 1: AprilTag 1 starts the food quiz node
+  - name: apriltag_1_start_follower
+    topic: /apriltag/detections
+    trigger: rising_edge
+    cooldown: 3.0
+    if:
+      data.id: 1
+    then:
+      - type: speak
+        text: "Hi! I see AprilTag 1."
+
+      - type: start_node
+        id: food_quiz_follower
+        package: YOUR_FOOD_PACKAGE
+        executable: YOUR_FOOD_EXECUTABLE
+
+  # RULE 2: AprilTag 2 stops the food quiz node
+  - name: apriltag_2_stop_follower
+    topic: /apriltag/detections
+    trigger: rising_edge
+    cooldown: 3.0
+    if:
+      data.id: 2
+    then:
+      - type: speak
+        text: "AprilTag 2 detected. Stopping follower now."
+
+      - type: stop_node
+        id: food_quiz_follower
+
+      - type: publish
+        topic: /robot_command
+        message_type: std_msgs/msg/String
+        message:
+          data: "M,100,100"
+        duration: 0.1
+
+  # RULE 3: Red object detection moves robot forward
+  - name: red_detected_move_forward
+    topic: /colour/detections
+    trigger: rising_edge
+    cooldown: 3.0
+    if:
+      data.colour: red
+      data.count:
+        gt: 0
+    then:
+      - type: speak
+        text: "Red object detected."
+
+      - type: publish
+        topic: /cmd_vel
+        message_type: geometry_msgs/msg/Twist
+        message:
+          linear:
+            x: 0.10
+        duration: 0.1
+        auto_stop: true
+
+  # -------------------------------------------------------------------------
+  # Reference: Example colour detection rule
+  # -------------------------------------------------------------------------
+  # - name: red_detected_move_forward
+  #   topic: /colour/detections
+  #   trigger: rising_edge
+  #   cooldown: 3.0
+  #   if:
+  #     data.colour: red
+  #     data.count:
+  #       gt: 0
+  #   then:
+  #     - type: speak
+  #       text: "Red object detected."
+  #     - type: publish
+  #       topic: /cmd_vel
+  #       message_type: geometry_msgs/msg/Twist
+  #       message:
+  #         linear:
+  #           x: 0.10
+  #       duration: 1.0
+  #       auto_stop: true

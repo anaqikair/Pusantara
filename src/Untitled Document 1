@@ -22,3 +22,11 @@ ros2 run nav2_map_server map_saver_cli \
 
 ros2 launch pusantara_navigation navigation.launch.py use_sim_time:=False autostart:=True map:=$HOME/vectra_ws/maps/MAPIRO1.yaml params_file:=$HOME/vectra_ws/src/pusantara_navigation/config/nav2_params.yaml
 
+
+
+ros2 lifecycle get /map_server
+ros2 lifecycle get /amcl
+ros2 lifecycle get /planner_server
+ros2 lifecycle get /controller_server
+ros2 lifecycle get /bt_navigator
+
